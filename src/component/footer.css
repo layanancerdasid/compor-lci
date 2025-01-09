@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.footer-link {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #2563eb;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  
+  .footer-link:hover::after {
+    width: 100%;
+  }
+  
+  .social-icon {
+    transition: transform 0.2s ease;
+  }
+  
+  .social-icon:hover {
+    transform: translateY(-2px);
+  }
