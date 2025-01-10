@@ -7,41 +7,36 @@ import {
 } from "@material-tailwind/react";
 
 const PRODUCT_IMAGES = {
-  "Podex": "src/assets/podex-asset2.png",
-  "Arvis": "src/assets/Dashboard1.png",
-  "Plurry": "/api/placeholder/800/500?text=Plurry",
+  Podex: "src/assets/podex-asset2.png",
+  Arvis: "src/assets/Dashboard1.png",
   "Smart Farming": "/api/placeholder/800/500?text=SmartFarming",
   "Smart Waster": "/api/placeholder/800/500?text=SmartWaster",
-  "Tripisia": "/api/placeholder/800/500?text=Tripisia",
+  Tripisia: "/api/placeholder/800/500?text=Tripisia",
 };
 
 const PRODUCT_DESCRIPTIONS = {
-  "Podex":
+  Podex:
     "PODEX merupakan sebuah platform yang menghubungkan berbagai stakeholder dalam ekosistem pendidikan untuk memudahkan Lembaga Pendidikan dalam penyediaan magang dan penempatan kerja, memudahkan calon tenaga kerja dalam mendapatkan pekerjaan, dan memudahkan industry dalam mencari tenaga kerja sesuai kebutuhan.",
-  "Arvis":
+  Arvis:
     "ARVIS adalah sebuah platform yang dapat digunakan sebagai sumber belajar yang variatif dengan menggunakan teknologi Augmented Reality. ARVIS dapat digunakan untuk menampilkan benda-benda berupa 3D yang tidak dapat dihadirkan secara langsung.",
-  "Plurry":
-    "Platform yang digunakan untuk mengembangkan keterampilan seperti coding, IOT, robotika dll, dengan materi yang disediakan oleh LCI.",
   "Smart Farming":
     "Merupakan sebuah layanan yang menggunakan teknologi IoT dan dibuat untuk memudahkan dalam memantau tumbuhan. Smart Farming dapat memantau tumbuhan secara realtime dan otomatis.",
   "Smart Waster":
     "Merupakan sebuah layanan yang menggunakan teknologi IoT untuk memudahkan dalam hal pengelolaan sampah. Smart Waste dapat memantau kapasitas tempat sampah secara realtime dan otomatis.",
-  "Tripisia":
+  Tripisia:
     "Platform untuk mengelola dan mengatur perjalanan bisnis (Business Trip) secara digital. Memudahkan perusahaan dalam mengatur perjalanan dan pengeluaran karyawan.",
 };
 
-const PRODUCT = [
-  "Podex",
-  "Arvis",
-  "Plurry",
-  "Smart Farming",
-  "Smart Waster",
-  "Tripisia",
-];
+const PRODUCT = ["Podex", "Arvis", "Smart Farming", "Smart Waster", "Tripisia"];
 
 const COMPANY_LOGOS = [
   { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
-  { src: "/src/assets/plury_icon.jpeg", alt: "Plurry" },
+  { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
+  { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
+  { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
+  { src: "/src/assets/tamasia_icon_transparent.png", alt: "Tripisia" },
+  // LOOP
+  { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
   { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
   { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
   { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
@@ -51,26 +46,57 @@ const COMPANY_LOGOS = [
 const CAROUSEL_ITEMS = [
   {
     id: 1,
-    link : "placeholder/link",
+    link: "placeholder/link",
     image: "src/assets/berita_foto-1.JPG",
     title: "Smart Wastebin",
-    description: "Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah",
+    description:
+      "Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah",
   },
   {
     id: 2,
-    link : "placeholder/link",
+    link: "placeholder/link",
     image: "src/assets/ceo_summit2024_2.jpeg",
     title: "ITB CEO Summit 2024",
-    description: "ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari",
+    description:
+      "ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari",
   },
   {
     id: 3,
-    link : "placeholder/link",
+    link: "placeholder/link",
     image: "src/assets/iciss1.jpeg",
     title: "ICISS",
-    description: "Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.",
+    description:
+      "Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.",
   },
 ];
+
+const PREVIEW_VIDEOS = [
+  {
+    id: 1,
+    src: "/src/assets/stereo-video-1.mp4",
+    alt: "Warehouse View 1",
+  },
+  {
+    id: 2,
+    src: "/src/assets/stereo-video-2.mp4",
+    alt: "Warehouse View 2",
+  },
+  {
+    id: 3,
+    src: "/src/assets/stereo-video-3.mp4",
+    alt: "Warehouse View 3",
+  },
+  {
+    id: 4,
+    src: "/src/assets/stereo-video-4.mp4",
+    alt: "Warehouse View 4",
+  },
+];
+const THEME = {
+  primary: "rgb(0, 77, 64)", // hijau tua
+  white: "rgb(255, 255, 255)",
+  light: "rgb(250, 250, 250)",
+};
 
 const Home = () => {
   const [open, setOpen] = useState("Podex");
@@ -83,7 +109,9 @@ const Home = () => {
   };
 
   const prevSlide = () => {
-    setActiveSlide((prev) => prev === 0 ? CAROUSEL_ITEMS.length - 1 : prev - 1);
+    setActiveSlide((prev) =>
+      prev === 0 ? CAROUSEL_ITEMS.length - 1 : prev - 1
+    );
   };
 
   return (
@@ -106,26 +134,26 @@ const Home = () => {
               Layanan Cerdas Indonesia
             </h1>
             <p className="mt-4 text-xl max-w-3xl">
-              "ACCELERATE YOUR BUSINESS" LAYANAN YANG AKAN MEMUDAHKAN DAN
+              ACCELERATE YOUR BUSINESS" LAYANAN YANG AKAN MEMUDAHKAN DAN
               MENGEFISIENSI BISNIS ANDA
             </p>
           </div>
           {/* Buttons positioned at bottom left */}
           <div className="absolute bottom-10 left-10 flex space-x-4">
-            <button className="bg-white text-black px-6 py-2 rounded-full shadow-md hover:bg-blue-700 hover:text-white transition-colors flex items-center gap-2">
+            <button className="bg-[#004D40] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#00695C] transition-colors flex items-center gap-2">
               <span>Learn More</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-            <button className="bg-white text-black px-6 py-2 rounded-full shadow-md hover:bg-slate-700 hover:text-white transition-colors flex items-center gap-2">
+            <button className="bg-[#004D40] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#00695C] transition-colors flex items-center gap-2">
+
               <span>Contact Us</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
       </section>
-
       {/* Services Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-white border-t border-b border-[#004D40]/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-2">
@@ -155,7 +183,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Company Logos Section */}
       <section className="py-16">
         <h1 className="text-5xl text-center pb-8">Our Product</h1>
@@ -191,7 +218,6 @@ const Home = () => {
           </ul>
         </div>
       </section>
-
       {/* Product Showcase Section */}
       <section className="relative min-h-[500px] bg-gray-100">
         <div className="container mx-auto px-4 py-16">
@@ -208,21 +234,67 @@ const Home = () => {
             <div className="bg-white rounded-lg shadow-lg p-6">
               {PRODUCT.map((product) => (
                 <Accordion key={product} open={open === product}>
-                  <AccordionHeader
-                    onClick={() =>
-                      handleOpen(product)}
-                  >
+                  <AccordionHeader onClick={() => handleOpen(product)}>
                     {product}
                   </AccordionHeader>
-                  <AccordionBody>
-                    {PRODUCT_DESCRIPTIONS[product]}
-                  </AccordionBody>
+                  <AccordionBody>{PRODUCT_DESCRIPTIONS[product]}</AccordionBody>
                 </Accordion>
               ))}
             </div>
           </div>
         </div>
       </section>
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="mb-8">
+            <h2 className="text-4xl font-bold text-[#004D40]">Highlight</h2>
+            <p className="text-xl mt-2 text-[#004D40]">Our product.</p>
+          </div>
+
+          <div className="relative">
+            {/* 4 Video Kecil di Atas */}
+            <div className="grid grid-cols-4 gap-4 mb-4">
+              {PREVIEW_VIDEOS.map((video) => (
+                <div
+                  key={video.id}
+                  className="aspect-video bg-white border-2 border-[#004D40] rounded-lg overflow-hidden shadow-lg"
+                >
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={video.src} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              ))}
+            </div>
+
+            {/* Video Besar */}
+            <div className="aspect-[21/9] bg-white border-2 border-[#004D40] rounded-lg overflow-hidden shadow-lg">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src="/src/assets/stereo-main.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            {/* Logo */}
+            <div className="absolute top-4 right-4 bg-[#004D40] px-3 py-1 rounded">
+              <span className="text-white font-bold">LCI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      );
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">News</h2>
@@ -238,12 +310,13 @@ const Home = () => {
                       ? "opacity-100 translate-x-0"
                       : "opacity-0 translate-x-full"
                   }`}
-                ><a href={item.link}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                  />
+                >
+                  <a href={item.link}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
                   </a>
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
                     <h3 className="text-xl font-bold">{item.title}</h3>
