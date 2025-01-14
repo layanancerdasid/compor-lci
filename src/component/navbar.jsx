@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import "./navbar.css";
+import { FaCaretDown } from "react-icons/fa";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,13 +21,11 @@ function Navbar() {
   }, []);
 
   const solutions = [
-    "Custom Development",
-    "System Integration",
-    "Digital Transformation",
-    "Cloud Solutions",
+    "AI Solution",
+    "IOT Solution",
   ];
 
-  const company = ["About Us", "Career", "Contact", "Partnership"];
+  const company = ["Visi Misi" ,"Tim Kami", "Contact"];
 
   return (
     <nav
@@ -38,11 +37,13 @@ function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img
-              src="src\assets\LogoColor_165x50.png"
-              alt="Logo"
-              className="h-12 w-auto"
-            />
+            <a href="/">
+              <img
+                src="src\assets\LogoColor_165x50.png"
+                alt="Logo"
+                className="h-12 w-auto"
+              />
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -53,13 +54,13 @@ function Navbar() {
             {isMenuOpen ? (
               <X
                 className={`h-6 w-6 ${
-                  isScrolled || isMenuOpen ? "text-gray-700" : "text-white"
+                  isScrolled || isMenuOpen ? "text-[#006666]" : "text-white"
                 }`}
               />
             ) : (
               <Menu
                 className={`h-6 w-6 ${
-                  isScrolled || isMenuOpen ? "text-gray-700" : "text-white"
+                  isScrolled || isMenuOpen ? "text-[#006666]" : "text-white"
                 }`}
               />
             )}
@@ -68,44 +69,45 @@ function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <a
-              href="#products"
+              href="/product"
               className={`nav-link transition-colors ${
                 isScrolled
-                  ? "text-gray-700 hover:text-blue-600"
+                  ? "text-[#006666] hover:text-[#009f9a]"
                   : "text-white hover:text-gray-200"
               }`}
             >
               Produk
             </a>
             <a
-              href="#technology"
+              href="/teknologi"
               className={`nav-link transition-colors ${
                 isScrolled
-                  ? "text-gray-700 hover:text-blue-600"
+                  ? "text-[#006666] hover:text-[#009f9a]"
                   : "text-white hover:text-gray-200"
               }`}
             >
-              Teknologi
+              Technology
             </a>
 
             {/* Solution Dropdown */}
             <div className="dropdown">
               <button
-                className={`nav-link transition-colors ${
+                className={`nav-link transition-colors inline-flex items-center gap-1 ${
                   isScrolled
-                    ? "text-gray-700 hover:text-blue-600"
+                    ? "text-[#006666] hover:text-[#009f9a]"
                     : "text-white hover:text-gray-200"
                 }`}
               >
-                Solution
+                <span>Solution</span>
+                <FaCaretDown className="text-sm" />
               </button>
               <div className="dropdown-content">
                 <div className="py-2">
                   {solutions.map((item, index) => (
                     <a
                       key={index}
-                      href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                      href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="block px-4 py-2 text-sm text-[#006666] hover:bg-[#009f9a]/10 hover:text-[#009f9a]"
                     >
                       {item}
                     </a>
@@ -117,21 +119,22 @@ function Navbar() {
             {/* Company Dropdown */}
             <div className="dropdown">
               <button
-                className={`nav-link transition-colors ${
+                className={`nav-link transition-colors inline-flex items-center gap-1 ${
                   isScrolled
-                    ? "text-gray-700 hover:text-blue-600"
+                    ? "text-[#006666] hover:text-[#009f9a]"
                     : "text-white hover:text-gray-200"
                 }`}
               >
-                Perusahaan
+                <span>Perusahaan</span>
+                <FaCaretDown className="text-sm" />
               </button>
               <div className="dropdown-content">
                 <div className="py-2">
                   {company.map((item, index) => (
                     <a
                       key={index}
-                      href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                      href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="block px-4 py-2 text-sm text-[#006666] hover:bg-[#009f9a]/10 hover:text-[#009f9a]"
                     >
                       {item}
                     </a>
@@ -148,26 +151,29 @@ function Navbar() {
             <div className="flex flex-col space-y-4">
               <a
                 href="#products"
-                className="px-4 py-2 text-gray-700 hover:bg-gray-100"
+                className="px-4 py-2 text-[#006666] hover:bg-[#009f9a]/10"
               >
                 Produk
               </a>
               <a
                 href="#technology"
-                className="px-4 py-2 text-gray-700 hover:bg-gray-100"
+                className="px-4 py-2 text-[#006666] hover:bg-[#009f9a]/10"
               >
                 Teknologi
               </a>
 
               {/* Mobile Solution Menu */}
               <div className="px-4">
-                <div className="font-semibold text-gray-700 mb-2">Solution</div>
+                <div className="font-semibold text-[#006666] mb-2 inline-flex items-center gap-1">
+                  <span>Solution</span>
+                  <FaCaretDown className="text-sm" />
+                </div>
                 <div className="ml-4 flex flex-col space-y-2">
                   {solutions.map((item, index) => (
                     <a
                       key={index}
                       href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-gray-600 hover:text-blue-600"
+                      className="text-[#006666] hover:text-[#009f9a]"
                     >
                       {item}
                     </a>
@@ -177,15 +183,16 @@ function Navbar() {
 
               {/* Mobile Company Menu */}
               <div className="px-4">
-                <div className="font-semibold text-gray-700 mb-2">
-                  Perusahaan
+                <div className="font-semibold text-[#006666] mb-2 inline-flex items-center gap-1">
+                  <span>Perusahaan</span>
+                  <FaCaretDown className="text-sm" />
                 </div>
                 <div className="ml-4 flex flex-col space-y-2">
                   {company.map((item, index) => (
                     <a
                       key={index}
                       href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-gray-600 hover:text-blue-600"
+                      className="text-[#006666] hover:text-[#009f9a]"
                     >
                       {item}
                     </a>

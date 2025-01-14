@@ -127,8 +127,7 @@ const Home = () => {
           <source src="/src/assets/bumper1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-black bg-opacity-50">
-          {/* Text Content */}
+        <div className="absolute inset-0 bg-[#006666] bg-opacity-60">
           <div className="flex flex-col items-center justify-center h-full text-white text-center px-4">
             <h1 className="text-4xl md:text-6xl font-bold">
               Layanan Cerdas Indonesia
@@ -138,55 +137,53 @@ const Home = () => {
               MENGEFISIENSI BISNIS ANDA
             </p>
           </div>
-          {/* Buttons positioned at bottom left */}
           <div className="absolute bottom-10 left-10 flex space-x-4">
-            <button className="bg-[#004D40] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#00695C] transition-colors flex items-center gap-2">
+            <button className="bg-white text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2">
               <span>Learn More</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-            <button className="bg-[#004D40] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#00695C] transition-colors flex items-center gap-2">
-
+            <button className="bg-[#009f9a] text-white px-6 py-2 rounded-full shadow-md hover:bg-white hover:text-[#009f9a] transition-colors flex items-center gap-2">
               <span>Contact Us</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
       </section>
-      {/* Services Section */}
-      <section className="py-16 bg-white border-t border-b border-[#004D40]/10">
+
+      <section className="py-16 bg-white border-t border-b border-[#009f9a]/10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-4xl font-bold mb-2">
+            <h2 className="text-4xl font-bold mb-2 text-[#006666]">
               Layanan Yang Kami Sediakan
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-800">
               Tim yang berkualitas dan berpengalaman
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ServiceCard
-              icon={<Microchip size={48} strokeWidth={1.25} />}
+              icon={<Microchip size={48} strokeWidth={1.25} className="text-[#006666]" />}
               title="IOT SERVICE"
               description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, velit."
             />
             <ServiceCard
-              icon={<Terminal size={48} strokeWidth={1.25} />}
+              icon={<Terminal size={48} strokeWidth={1.25} className="text-[#006666]" />}
               title="SOFTWARE SERVICE"
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat enim laudantium."
             />
             <ServiceCard
-              icon={<TrendingUp size={48} strokeWidth={1.25} />}
+              icon={<TrendingUp size={48} strokeWidth={1.25} className="text-[#006666]" />}
               title="PRODUCTIVITY"
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque perspiciatis."
             />
           </div>
         </div>
       </section>
-      {/* Company Logos Section */}
-      <section className="py-16">
-        <h1 className="text-5xl text-center pb-8">Our Product</h1>
-        <div className="w-full inline-flex flex-nowrap overflow-hidden">
+
+      <section className="py-16 bg-[#006666]/5 ">
+        <h1 className="text-5xl text-center pb-8 text-[#006666]">Our Product</h1>
+        <div className="w-full inline-flex flex-nowrap overflow-hidden ">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 animate-infinite-scroll">
             {COMPANY_LOGOS.map((logo, index) => (
               <li key={index}>
@@ -194,7 +191,7 @@ const Home = () => {
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-w-none w-28 h-28 object-contain"
+                    className="max-w-none w-28 h-28 object-contain hover:opacity-80 transition-opacity"
                   />
                 </a>
               </li>
@@ -210,7 +207,7 @@ const Home = () => {
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-w-none w-28 h-28 object-contain"
+                    className="max-w-none w-28 h-28 object-contain hover:opacity-80 transition-opacity "
                   />
                 </a>
               </li>
@@ -218,12 +215,11 @@ const Home = () => {
           </ul>
         </div>
       </section>
-      {/* Product Showcase Section */}
-      <section className="relative min-h-[500px] bg-gray-100">
+
+      <section className="relative min-h-[500px] bg-white">
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left side - Image */}
-            <div className="relative h-[500px] rounded-lg overflow-hidden">
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg">
               <img
                 src={PRODUCT_IMAGES[open]}
                 alt={`${open}`}
@@ -231,50 +227,35 @@ const Home = () => {
               />
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg shadow-lg p-6 border border-[#009f9a]/20">
               {PRODUCT.map((product) => (
                 <Accordion key={product} open={open === product}>
-                  <AccordionHeader onClick={() => handleOpen(product)}>
+                  <AccordionHeader 
+                    onClick={() => handleOpen(product)}
+                    className="text-[#006666] hover:text-[#009f9a]"
+                  >
                     {product}
                   </AccordionHeader>
-                  <AccordionBody>{PRODUCT_DESCRIPTIONS[product]}</AccordionBody>
+                  <AccordionBody className="text-black font-medium">
+                    {PRODUCT_DESCRIPTIONS[product]}
+                  </AccordionBody>
                 </Accordion>
               ))}
             </div>
           </div>
         </div>
       </section>
-      <section className="py-16 bg-white">
+
+      <section className="py-16 bg-[#006666]/5">
         <div className="container mx-auto px-4">
           <div className="mb-8">
-            <h2 className="text-4xl font-bold text-[#004D40]">Highlight</h2>
-            <p className="text-xl mt-2 text-[#004D40]">Our product.</p>
+            <h2 className="text-4xl font-bold text-[#006666]">Highlight</h2>
+            <p className="text-xl mt-2 text-[#009f9a]">Our product.</p>
           </div>
 
           <div className="relative">
-            {/* 4 Video Kecil di Atas */}
-            <div className="grid grid-cols-4 gap-4 mb-4">
-              {PREVIEW_VIDEOS.map((video) => (
-                <div
-                  key={video.id}
-                  className="aspect-video bg-white border-2 border-[#004D40] rounded-lg overflow-hidden shadow-lg"
-                >
-                  <video
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
-                    <source src={video.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              ))}
-            </div>
 
-            {/* Video Besar */}
-            <div className="aspect-[21/9] bg-white border-2 border-[#004D40] rounded-lg overflow-hidden shadow-lg">
+            <div className="aspect-[21/9] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
               <video
                 className="w-full h-full object-cover"
                 autoPlay
@@ -286,21 +267,15 @@ const Home = () => {
                 Your browser does not support the video tag.
               </video>
             </div>
-
-            {/* Logo */}
-            <div className="absolute top-4 right-4 bg-[#004D40] px-3 py-1 rounded">
-              <span className="text-white font-bold">LCI</span>
-            </div>
           </div>
         </div>
       </section>
-      );
+
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">News</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#006666]">News</h2>
 
           <div className="relative max-w-4xl mx-auto">
-            {/* Carousel Container */}
             <div className="relative h-[400px] overflow-hidden rounded-xl">
               {CAROUSEL_ITEMS.map((item, index) => (
                 <div
@@ -318,7 +293,7 @@ const Home = () => {
                       className="w-full h-full object-cover"
                     />
                   </a>
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#006666] bg-opacity-90 text-white p-4">
                     <h3 className="text-xl font-bold">{item.title}</h3>
                     <p>{item.description}</p>
                   </div>
@@ -326,28 +301,26 @@ const Home = () => {
               ))}
             </div>
 
-            {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-r-lg p-2 shadow-lg transition-all"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white hover:bg-[#009f9a] text-[#006666] hover:text-white rounded-r-lg p-2 shadow-lg transition-all"
             >
               ←
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-l-lg p-2 shadow-lg transition-all"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white hover:bg-[#009f9a] text-[#006666] hover:text-white rounded-l-lg p-2 shadow-lg transition-all"
             >
               →
             </button>
 
-            {/* Indicators */}
             <div className="flex justify-center mt-4 space-x-2">
               {CAROUSEL_ITEMS.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    index === activeSlide ? "bg-blue-600" : "bg-gray-300"
+                    index === activeSlide ? "bg-[#006666]" : "bg-[#009f9a]/30"
                   }`}
                 />
               ))}
@@ -360,10 +333,10 @@ const Home = () => {
 };
 
 const ServiceCard = ({ icon, title, description }) => (
-  <div className="text-center p-6">
+  <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
     <div className="mb-4 flex justify-center">{icon}</div>
-    <h3 className="text-3xl font-bold mb-4">{title}</h3>
-    <p className="text-gray-600">{description}</p>
+    <h3 className="text-3xl font-bold mb-4 text-[#006666]">{title}</h3>
+    <p className="text-gray-800">{description}</p>
   </div>
 );
 

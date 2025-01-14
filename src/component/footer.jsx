@@ -1,5 +1,5 @@
 import "./footer.css";
-import { Instagram, Linkedin, Download } from "lucide-react";
+import { FaInstagram, FaLinkedin, FaDownload } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -57,7 +57,7 @@ function Footer() {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <Instagram size={24} />
+                  <FaInstagram size={24} />
                 </a>
                 <a 
                   href="#linkedin" 
@@ -65,7 +65,7 @@ function Footer() {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <Linkedin size={24} />
+                  <FaLinkedin size={24} />
                 </a>
               </div>
               
@@ -73,7 +73,7 @@ function Footer() {
                 href="#download-company-profile" 
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
               >
-                <Download size={20} />
+                <FaDownload size={20} />
                 Download Company Profile
               </a>
             </div>
