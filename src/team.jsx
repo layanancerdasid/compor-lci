@@ -12,34 +12,37 @@ const teamMembers = [
 ];
 
 function Team() {
-    const TeamMembers = () => {
-        const managementTeam = teamMembers.filter((member) =>
-            ["CEO", "COO", "CFO"].includes(member.role)
-        );
+    const managementTeam = teamMembers.filter((member) =>
+        ["CEO", "COO", "CFO"].includes(member.role)
+    );
 
-        const productTeam = teamMembers.filter((member) =>
-            !["CEO", "COO", "CFO"].includes(member.role)
-        );
+    const productTeam = teamMembers.filter((member) =>
+        !["CEO", "COO", "CFO"].includes(member.role)
+    );
 
-        return (
-            <>
-                <div className="relative h-72 bg-gradient-to-r from-[#009f9a] from-10% to-[#006666]">
-                    <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-                    <div className="absolute inset-0 flex items-center justify-center text-center">
-                        <div className="max-w-2xl px-4">
-                            <h1 className="text-5xl font-light text-white mb-4">
-                                Our Team
-                            </h1>
-                        </div>
+    return (
+        <div className="min-h-screen bg-white">
+            {/* Hero Banner */}
+            <div className="relative h-72 bg-gradient-to-r from-[#009f9a] from-10% to-[#006666]">
+                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+                <div className="absolute inset-0 flex items-center justify-center text-center">
+                    <div className="max-w-2xl px-4">
+                        <h1 className="text-5xl font-light text-white mb-4 poppins-semibold">
+                            Our Team
+                        </h1>
                     </div>
                 </div>
+            </div>
+
+            {/* Main Content */}
+            <div className="py-16">
                 <div className="w-full max-w-6xl mx-auto px-4">
                     {/* Management Section */}
                     <div className="mb-16">
-                        <h2 className="text-3xl font-semibold text-center mb-12">
+                        <h2 className="text-3xl font-semibold text-center mb-12 poppins-semibold">
                             MANAGEMENT
                         </h2>
-                        <div className="flex justify-center gap-8 flex-wrap">
+                        <div className="flex justify-center gap-8 flex-wrap poppins-regular">
                             {managementTeam.map((member) => (
                                 <div
                                     key={member.name}
@@ -65,10 +68,10 @@ function Team() {
 
                     {/* Product Development Section */}
                     <div>
-                        <h2 className="text-3xl font-semibold text-center mb-12">
+                        <h2 className="text-3xl font-semibold text-center mb-12 poppins-semibold">
                             PRODUCT DEVELOPMENT
                         </h2>
-                        <div className="flex justify-center gap-8 flex-wrap max-w-4xl mx-auto">
+                        <div className="flex justify-center gap-8 flex-wrap max-w-4xl mx-auto poppins-regular">
                             {productTeam.map((member) => (
                                 <div
                                     key={member.name}
@@ -92,12 +95,9 @@ function Team() {
                         </div>
                     </div>
                 </div>
-            </>
-        );
-    };
-
-    // Render the TeamMembers component
-    return <TeamMembers />;
+            </div>
+        </div>
+    );
 }
 
 export default Team;

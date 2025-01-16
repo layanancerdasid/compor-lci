@@ -53,7 +53,7 @@ const AI = () => {
       </div>
       
       <section className="container mx-auto my-8 px-4">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-gray-700 leading-relaxed poppins-regular">
           Solusi AI dari Layanan Cerdas Indonesia menawarkan platform canggih
           untuk integrasi kecerdasan buatan di berbagai sektor, memungkinkan
           pengembangan layanan yang cerdas, skalabel, dan efisien. Solusi AI
@@ -78,7 +78,7 @@ const AI = () => {
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl font-bold text-center mb-12 poppins-semibold">
             STUDI KASUS AI
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
@@ -92,7 +92,7 @@ const AI = () => {
                   <div className="bg-teal-600 p-4 rounded-lg mb-4 text-white w-16 h-16 flex items-center justify-center">
                     <IconComponent className="w-8 h-8" />
                   </div>
-                  <h3 className="text-lg font-medium mt-2 text-gray-800">
+                  <h3 className="text-lg font-medium mt-2 text-gray-800 poppins-semibold">
                     {item.title}
                   </h3>
                 </div>

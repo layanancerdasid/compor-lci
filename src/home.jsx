@@ -5,13 +5,14 @@ import {
   AccordionBody,
   AccordionHeader,
 } from "@material-tailwind/react";
+import "./assets/font.css";
 
 const PRODUCT_IMAGES = {
   Podex: "src/assets/podex-asset2.png",
   Arvis: "src/assets/Dashboard1.png",
-  "Smart Farming": "/api/placeholder/800/500?text=SmartFarming",
-  "Smart Waster": "/api/placeholder/800/500?text=SmartWaster",
-  Tripisia: "/api/placeholder/800/500?text=Tripisia",
+  "Smart Farming": "/produk/smartperkebunan/dashboard_smartbun.jpeg",
+  "Smart Waster": "/produk/smartwastebin/ss_wastebin.png",
+  Tripisia: "/produk/tripisia/picture.jpeg",
 };
 
 const PRODUCT_DESCRIPTIONS = {
@@ -30,12 +31,14 @@ const PRODUCT_DESCRIPTIONS = {
 const PRODUCT = ["Podex", "Arvis", "Smart Farming", "Smart Waster", "Tripisia"];
 
 const COMPANY_LOGOS = [
+  {src : "/Roadbotics logo.png"},
   { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
   { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
   { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
   { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
   { src: "/src/assets/tamasia_icon_transparent.png", alt: "Tripisia" },
   // LOOP
+  {src : "/Roadbotics logo.png"},
   { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
   { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
   { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
@@ -115,6 +118,7 @@ const Home = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen">
       <section className="relative h-[75vh]">
         <video
@@ -129,15 +133,15 @@ const Home = () => {
         </video>
         <div className="absolute inset-0 bg-[#006666] bg-opacity-60">
           <div className="flex flex-col items-center justify-center h-full text-white text-center px-4">
-            <h1 className="text-4xl md:text-6xl font-bold">
+            <h1 className="text-4xl md:text-6xl font-bold poppins-semibold">
               Layanan Cerdas Indonesia
             </h1>
-            <p className="mt-4 text-xl max-w-3xl">
-              ACCELERATE YOUR BUSINESS" LAYANAN YANG AKAN MEMUDAHKAN DAN
+            <p className="mt-4 text-xl max-w-3xl poppins-regular">
+              "ACCELERATE YOUR BUSINESS" LAYANAN YANG AKAN MEMUDAHKAN DAN
               MENGEFISIENSI BISNIS ANDA
             </p>
           </div>
-          <div className="absolute bottom-10 left-10 flex space-x-4">
+          <div className="absolute bottom-10 left-10 flex space-x-4 poppins-medium">
             <button className="bg-white text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2">
               <span>Learn More</span>
               <ArrowRight className="w-4 h-4" />
@@ -151,12 +155,12 @@ const Home = () => {
       </section>
 
       <section className="py-16 bg-white border-t border-b border-[#009f9a]/10">
-        <div className="container mx-auto px-4">
+        <div className="container text-center mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-4xl font-bold mb-2 text-[#006666]">
+            <h2 className="text-2xl font-bold mb-2 text-[#006666] poppins-semibold">
               Layanan Yang Kami Sediakan
             </h2>
-            <p className="text-xl text-gray-800">
+            <p className="text-base text-gray-800 poppins-regular">
               Tim yang berkualitas dan berpengalaman
             </p>
           </div>
@@ -182,7 +186,7 @@ const Home = () => {
       </section>
 
       <section className="py-16 bg-[#006666]/5 ">
-        <h1 className="text-5xl text-center pb-8 text-[#006666]">Our Product</h1>
+        <h1 className="text-2xl text-center pb-8 text-[#006666] poppins-semibold">Our Product</h1>
         <div className="w-full inline-flex flex-nowrap overflow-hidden ">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 animate-infinite-scroll">
             {COMPANY_LOGOS.map((logo, index) => (
@@ -232,11 +236,11 @@ const Home = () => {
                 <Accordion key={product} open={open === product}>
                   <AccordionHeader 
                     onClick={() => handleOpen(product)}
-                    className="text-[#006666] hover:text-[#009f9a]"
+                    className="text-[#006666] hover:text-[#009f9a] poppins-semibold"
                   >
                     {product}
                   </AccordionHeader>
-                  <AccordionBody className="text-black font-medium">
+                  <AccordionBody className="text-black font-medium poppins-regular">
                     {PRODUCT_DESCRIPTIONS[product]}
                   </AccordionBody>
                 </Accordion>
@@ -249,13 +253,13 @@ const Home = () => {
       <section className="py-16 bg-[#006666]/5">
         <div className="container mx-auto px-4">
           <div className="mb-8">
-            <h2 className="text-4xl font-bold text-[#006666]">Highlight</h2>
-            <p className="text-xl mt-2 text-[#009f9a]">Our product.</p>
+            <h2 className="text-4xl font-bold text-[#006666] poppins-semibold">Highlight</h2>
+            <p className="text-xl mt-2 text-[#009f9a] poppins-regular">Our product.</p>
           </div>
 
           <div className="relative">
 
-            <div className="aspect-[21/9] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
+            <div className="aspect-[16/9] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
               <video
                 className="w-full h-full object-cover"
                 autoPlay
@@ -263,7 +267,7 @@ const Home = () => {
                 loop
                 playsInline
               >
-                <source src="/src/assets/stereo-main.mp4" type="video/mp4" />
+                <source src="/VID-20250116-WA0005.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -273,7 +277,7 @@ const Home = () => {
 
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#006666]">News</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#006666] poppins-semibold">News</h2>
 
           <div className="relative max-w-4xl mx-auto">
             <div className="relative h-[400px] overflow-hidden rounded-xl">
@@ -294,8 +298,8 @@ const Home = () => {
                     />
                   </a>
                   <div className="absolute bottom-0 left-0 right-0 bg-[#006666] bg-opacity-90 text-white p-4">
-                    <h3 className="text-xl font-bold">{item.title}</h3>
-                    <p>{item.description}</p>
+                    <h3 className="text-xl poppins-semibold">{item.title}</h3>
+                    <p className="poppins-regular text-base mt-2">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -329,14 +333,15 @@ const Home = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
 const ServiceCard = ({ icon, title, description }) => (
   <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
     <div className="mb-4 flex justify-center">{icon}</div>
-    <h3 className="text-3xl font-bold mb-4 text-[#006666]">{title}</h3>
-    <p className="text-gray-800">{description}</p>
+    <h3 className="text-lg font-bold mb-4 text-[#006666] poppins-semibold">{title}</h3>
+    <p className="text-gray-800 text-base poppins-regular">{description}</p>
   </div>
 );
 

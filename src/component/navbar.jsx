@@ -25,7 +25,7 @@ function Navbar() {
     "IOT Solution",
   ];
 
-  const company = ["Visi Misi" ,"Tim Kami", "Contact"];
+  const company = ["Visi Misi", "Tim Kami", "Contact"];
 
   return (
     <nav
@@ -33,19 +33,23 @@ function Navbar() {
         isScrolled || isMenuOpen ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 poppins-semibold">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Logo with conditional source */}
           <div className="flex-shrink-0">
             <a href="/">
               <img
-                src="src\assets\LogoColor_165x50.png"
+                src={isScrolled || isMenuOpen 
+                  ? "src/assets/LogoColor_165x50.png"  // Colored logo
+                  : "/LogoWhite_165x50.png"  // White logo
+                }
                 alt="Logo"
                 className="h-12 w-auto"
               />
             </a>
           </div>
 
+          {/* Rest of the navbar code remains the same */}
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}

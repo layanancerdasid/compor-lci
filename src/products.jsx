@@ -11,7 +11,7 @@ const ProductCard = ({ product, isActive, onClick }) => {
           : 'border-transparent hover:bg-[#009f9a]/5'
       }`}
     >
-      <div className={`w-12 h-12 fOur Techlex items-center justify-center rounded-full ${
+      <div className={`w-12 h-12 flex items-center justify-center rounded-full  ${
         isActive ? 'bg-[#009f9a]/20' : 'bg-[#009f9a]/10'
       } mr-4`}>
         <img 
@@ -20,7 +20,7 @@ const ProductCard = ({ product, isActive, onClick }) => {
           className="w-6 h-6 object-contain"
         />
       </div>
-      <div className="text-left">
+      <div className="text-left poppins-semibold">
         <h3 className={`font-medium ${isActive ? 'text-[#006666]' : 'text-[#006666]/80'}`}>
           {product.name}
         </h3>
@@ -40,7 +40,7 @@ const ProductDetail = ({ product }) => {
   return (
     <div className="p-12 animate-fadeIn">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-light text-[#006666] mb-8">{product.name}</h1>
+        <h1 className="text-5xl font-light text-[#006666] mb-8 poppins-semibold">{product.name}</h1>
         
         {product.images && (
           <div className="mb-12 rounded-2xl overflow-hidden shadow-lg">
@@ -55,7 +55,7 @@ const ProductDetail = ({ product }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="md:col-span-2 space-y-8">
             <div className="prose prose-lg">
-              <p className="text-[#006666]/80 leading-relaxed">
+              <p className="text-[#006666]/80 leading-relaxed poppins-regular">
                 {product.description}
               </p>
             </div>
@@ -91,12 +91,12 @@ const ProductDetail = ({ product }) => {
           </div>
           
           <div className="bg-[#006666]/5 p-8 rounded-2xl">
-            <h5 className="font-medium text-[#009f9a] uppercase tracking-wide text-sm mb-4">
+            <h5 className="font-medium text-[#009f9a] uppercase tracking-wide text-sm mb-4 poppins-semibold">
               Fitur
             </h5>
             <ul className="space-y-4">
               {product.features.map((feature, idx) => (
-                <li key={idx} className="text-gray-800 flex items-start">
+                <li key={idx} className="text-gray-800 flex items-start poppins-regular">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#009f9a] mt-2 mr-2 flex-shrink-0" />
                   <span className="text-sm leading-relaxed">{feature}</span>
                 </li>
@@ -105,7 +105,7 @@ const ProductDetail = ({ product }) => {
           </div>
         </div>
         
-        <div className="mt-12 flex justify-end">
+        <div className="mt-12 flex justify-end poppins-semibold">
           <a
             href="/contact"
             className="px-8 py-3 bg-[#006666] text-white rounded-full hover:bg-[#009f9a] transition-colors text-sm font-medium shadow-sm hover:shadow-md"
@@ -122,7 +122,7 @@ const products = [
   {
     id: 'arvis',
     name: 'Arvis',
-    iconPath: 'src/assets/arvis_icon.png', 
+    iconPath: '/produk_icon/arvis.png', 
     description: 'ARVIS (Artificial Intelligence & Video Analytics System) adalah Sistem pemantauan cerdas untuk situational awareness dan terintegrasi ke Dashboard.',
     salesOptions: [
       'Subscription (Berlangganan)',
@@ -138,12 +138,12 @@ const products = [
       'Crime Detection',
       'People Counting & Crowd Understanding'
     ],
-    images: ['/api/placeholder/800/400']
+    images: ['/produk/arvis/Dashboard1.png']
   },
   {
     id: 'tripisia',
     name: 'Tripisia',
-    iconPath: 'src/assets/tamasia_icon_transparent.png', 
+    iconPath: '/produk_icon/tripisia_icon.png', 
     description: 'Tripisia adalah sebuah aplikasi trip planner berbasis website dan mobile yang memudahkan pengguna untuk melakukan reservasi tiket transportasi, hotel, dan tiket pariwisata.',
     salesOptions: ['Subscription (Berlangganan)', 'Jual Putus'],
     platforms: ['WEBSITE', 'ANDROID'],
@@ -155,12 +155,12 @@ const products = [
       'Tourism Application',
       'Trip Packages'
     ],
-    images: ['/api/placeholder/800// Update with your actual icon path/400']
+    images: ['/produk/tripisia/picture.jpeg']
   },
   {
     id: 'smart-waste',
     name: 'Smart Waste Bin',
-    iconPath: 'src/assets/swb.jpeg', 
+    iconPath: '/produk_icon/smart wastebin_icon.png', 
     description: 'Smart waste bin adalah tong sampah yang dilengkapi dengan teknologi sensor dan konektivitas internet untuk memantau dan mengelola pengumpulan sampah secara lebih efisien.',
     salesOptions: ['One-Time Charge (Jual Putus)'],
     platforms: ['WEBSITE'],
@@ -169,22 +169,22 @@ const products = [
       'Pemantauan volume sampah secara realtime',
       'Rute dan jadwal pengangkutan sampah otomatis'
     ],
-    images: ['/api/placeholder/800/400']
+    images: ['/produk/smartwastebin/ss_wastebin.png']
   },
   {
     id: 'pod-ex',
     name: 'POD-EX',
-    iconPath: 'src/assets/Logo full-hitam.png', 
+    iconPath: '/produk_icon/Logo-hitam.png', 
     description: 'POD-EX (Personalized On-Demand Exchange) adalah sistem kartu pengenal pintar, menggunakan teknologi NFC yang mengintergrasikan kartu pengenal dengan sistem.',
     salesOptions: ['Coming Soon'],
     platforms: ['Coming Soon'],
     features: ['Coming Soon'],
-    images: ['/api/placeholder/800/400']
+    images: ['/produk/pod-ex/podex-asset1.png']
   },
   {
     id: 'smart-farming',
     name: 'Smart Farming',
-    iconPath: 'src/assets/smart-farming.jpeg', 
+    iconPath: '/produk_icon/smart farming_icon.png', 
     description: 'Smart Farming merupakan platform yang mendukung perkembangan perkebunan dengan sistem komprehensif hulu ke hilir untuk membantu mendata, mengontrol dan mengawasi perkebunan.',
     salesOptions: ['Subscription (Sewa)', 'One-Time Charge (Jual Putus)'],
     platforms: ['WEBSITE'],
@@ -198,7 +198,7 @@ const products = [
       'Monitoring Nitrogen',
       'Rekomendasi Pemupukan dan Penyiraman'
     ],
-    images: ['/api/placeholder/800/400']
+    images: ['/produk/smartperkebunan/dashboard_smartbun.jpeg']
   },
 ];
 
@@ -212,8 +212,8 @@ const Products = () => {
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-2xl px-4">
-            <h1 className="text-5xl font-light text-white mb-4">Produk Kami</h1>
-            <p className="text-white/80 text-lg">
+            <h1 className="text-5xl font-light text-white mb-4 poppins-semibold">Produk Kami</h1>
+            <p className="text-white/80 text-lgpoppins-regular ">
               Solusi teknologi terdepan untuk kebutuhan bisnis Anda
             </p>
           </div>

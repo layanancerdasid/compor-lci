@@ -11,11 +11,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import IOT from "./iotsolution.jsx";
 import Visi from "./visi.jsx";
 import Team from "./team.jsx";
+import Contact from "./contact.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path='/contact' element={<Contact />} />
         <Route path='/tim-kami' element={<Team />} />
         <Route path='/visi-misi' element={<Visi />}/>
         <Route path="/iot-solution" element={<IOT />}/>
