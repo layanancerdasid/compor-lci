@@ -11,6 +11,7 @@ import { MdOutlinePets } from "react-icons/md";
 import { ImHammer2 } from "react-icons/im";
 import { RiEBikeLine } from "react-icons/ri";
 import { IoIosPeople } from "react-icons/io";
+import { Helmet } from "react-helmet";
 
 const AI = () => {
   // Define iconComponents object to map icon names to their components
@@ -42,6 +43,9 @@ const AI = () => {
 
   return (
     <>
+      <Helmet>
+        <title>AI Solution | Layanan Cerdas Indonesia</title>
+      </Helmet>
       <div className="relative h-72 bg-gradient-to-r from-[#009f9a] from-10% to-[#006666]">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
@@ -51,7 +55,7 @@ const AI = () => {
           </div>
         </div>
       </div>
-      
+
       <section className="container mx-auto my-8 px-4">
         <p className="text-gray-700 leading-relaxed poppins-regular">
           Solusi AI dari Layanan Cerdas Indonesia menawarkan platform canggih
@@ -70,11 +74,7 @@ const AI = () => {
         </p>
       </section>
 
-      <img
-              className="mx-auto w-90 mt-5"
-              src="/ai_solution.png"
-              alt="AI"
-      />
+      <img className="mx-auto w-90 mt-5" src="/ai_solution.png" alt="AI" />
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">

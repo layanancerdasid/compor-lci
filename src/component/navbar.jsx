@@ -20,10 +20,7 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const solutions = [
-    "AI Solution",
-    "IOT Solution",
-  ];
+  const solutions = ["AI Solution", "IOT Solution"];
 
   const company = ["Visi Misi", "Tim Kami", "Contact"];
 
@@ -39,9 +36,10 @@ function Navbar() {
           <div className="flex-shrink-0">
             <a href="/">
               <img
-                src={isScrolled || isMenuOpen 
-                  ? "src/assets/LogoColor_165x50.png"  // Colored logo
-                  : "/LogoWhite_165x50.png"  // White logo
+                src={
+                  isScrolled || isMenuOpen
+                    ? "src/assets/LogoColor_165x50.png" // Colored logo
+                    : "/LogoWhite_165x50.png" // White logo
                 }
                 alt="Logo"
                 className="h-12 w-auto"
@@ -154,13 +152,13 @@ function Navbar() {
           <div className="lg:hidden bg-white py-4">
             <div className="flex flex-col space-y-4">
               <a
-                href="#products"
+                href="/product"
                 className="px-4 py-2 text-[#006666] hover:bg-[#009f9a]/10"
               >
                 Produk
               </a>
               <a
-                href="#technology"
+                href="/teknologi"
                 className="px-4 py-2 text-[#006666] hover:bg-[#009f9a]/10"
               >
                 Teknologi
@@ -173,15 +171,19 @@ function Navbar() {
                   <FaCaretDown className="text-sm" />
                 </div>
                 <div className="ml-4 flex flex-col space-y-2">
-                  {solutions.map((item, index) => (
-                    <a
-                      key={index}
-                      href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-[#006666] hover:text-[#009f9a]"
-                    >
-                      {item}
-                    </a>
-                  ))}
+                  {solutions.map((item, index) => {
+                    return (
+                      <>
+                        <a
+                          key={index}
+                          href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                          className="text-[#006666] hover:text-[#009f9a]"
+                        >
+                          {item}
+                        </a>
+                      </>
+                    );
+                  })}
                 </div>
               </div>
 
