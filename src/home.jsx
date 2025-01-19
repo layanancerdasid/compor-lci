@@ -132,7 +132,7 @@ const Home = () => {
             <source src={Bumper1} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 bg-[#006666] bg-opacity-60">
+          <div className="absolute inset-0 bg-[#044640] bg-opacity-60">
             <div className="flex flex-col items-center justify-center h-full text-white text-center px-4">
               <h1 className="text-4xl md:text-6xl font-bold poppins-semibold">
                 Layanan Cerdas Indonesia
@@ -148,10 +148,10 @@ const Home = () => {
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <button className="bg-[#009f9a] text-white px-6 py-2 rounded-full shadow-md hover:bg-white hover:text-[#009f9a] transition-colors flex items-center gap-2">
+                {/* <button className="bg-[#009f9a] text-white px-6 py-2 rounded-full shadow-md hover:bg-white hover:text-[#009f9a] transition-colors flex items-center gap-2">
                   <span>Contact Us</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -277,15 +277,16 @@ const Home = () => {
           <div className="container mx-auto px-4">
             <div className="mb-8">
               <h2 className="text-4xl font-bold text-[#006666] poppins-semibold">
-                Highlight
+                Our Technologies
               </h2>
               <p className="text-xl mt-2 text-[#009f9a] poppins-regular">
-                Our product.
+                Kami memperpadukan Teknologi Internet of Things dan Artificial
+                Intelligence sebagai solusi pada produk kami
               </p>
             </div>
 
-            <div className="relative">
-              <div className="aspect-[16/9] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
+            <div className="relative flex gap-2">
+              <div className="aspect-[16/9] w-[50%] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
                 <video
                   className="w-full h-full object-cover"
                   autoPlay
@@ -293,10 +294,32 @@ const Home = () => {
                   loop
                   playsInline
                 >
-                  <source src="/VID-20250116-WA0005.mp4" type="video/mp4" />
+                  <source src="/wastebin_1.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
+              <div className="aspect-[16/9] w-[50%] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src="/wastebin_2.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div className="flex justify-center mt-8 gap-8">
+              <button className="bg-white text-xl text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2">
+                <span>AI Solution</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <button className="bg-white text-xl text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2">
+                <span>IoT Solution</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </section>

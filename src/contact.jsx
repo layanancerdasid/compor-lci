@@ -7,7 +7,7 @@ function Contact() {
       <Helmet>
         <title>Contact | Layanan Cerdas Indonesia</title>
       </Helmet>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screenbg-white">
         {/* Header Section */}
         <div className="relative h-64 bg-gradient-to-r from-[#009f9a] from-10% to-[#006666]">
           <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
