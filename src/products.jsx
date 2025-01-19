@@ -1,6 +1,6 @@
-import "./products.css";
-import { useState } from "react";
-import { Helmet } from "react-helmet";
+import './products.css';
+import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const ProductCard = ({ product, isActive, onClick }) => {
   return (
@@ -8,13 +8,13 @@ const ProductCard = ({ product, isActive, onClick }) => {
       onClick={() => onClick(product.id)}
       className={`w-full flex items-center p-6 transition-all border-l-4 ${
         isActive
-          ? "bg-[#009f9a]/10 border-[#006666]"
-          : "border-transparent hover:bg-[#009f9a]/5"
+          ? 'bg-[#009f9a]/10 border-[#006666]'
+          : 'border-transparent hover:bg-[#009f9a]/5'
       }`}
     >
       <div
         className={`w-12 h-12 flex items-center justify-center rounded-full  ${
-          isActive ? "bg-[#009f9a]/20" : "bg-[#009f9a]/10"
+          isActive ? 'bg-[#009f9a]/20' : 'bg-[#009f9a]/10'
         } mr-4`}
       >
         <img
@@ -25,7 +25,9 @@ const ProductCard = ({ product, isActive, onClick }) => {
       </div>
       <div className="text-left poppins-semibold">
         <h3
-          className={`font-medium ${isActive ? "text-[#006666]" : "text-[#006666]/80"}`}
+          className={`font-medium ${
+            isActive ? 'text-[#006666]' : 'text-[#006666]/80'
+          }`}
         >
           {product.name}
         </h3>
@@ -50,11 +52,11 @@ const ProductDetail = ({ product }) => {
         </h1>
 
         {product.images && (
-          <div className="mb-12 rounded-2xl overflow-hidden shadow-lg">
+          <div className="mb-12 h-[45vh] rounded-2xl overflow-hidden shadow-lg">
             <img
               src={product.images[0]}
               alt={product.name}
-              className="w-full h-80 object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
         )}
@@ -130,90 +132,90 @@ const ProductDetail = ({ product }) => {
 
 const products = [
   {
-    id: "arvis",
-    name: "Arvis",
-    iconPath: "/produk_icon/arvis.png",
+    id: 'arvis',
+    name: 'Arvis',
+    iconPath: '/produk_icon/arvis.png',
     description:
-      "ARVIS (Artificial Intelligence & Video Analytics System) adalah Sistem pemantauan cerdas untuk situational awareness dan terintegrasi ke Dashboard.",
+      'ARVIS (Artificial Intelligence & Video Analytics System) adalah Sistem pemantauan cerdas untuk situational awareness dan terintegrasi ke Dashboard.',
     salesOptions: [
-      "Subscription (Berlangganan)",
-      "One-Time Charge (Jual Putus)",
-      "Sharing Profit",
+      'Subscription (Berlangganan)',
+      'One-Time Charge (Jual Putus)',
+      'Sharing Profit',
     ],
-    platforms: ["WEBSITE"],
+    platforms: ['WEBSITE'],
     features: [
-      "Traffic Analytic: License Plate Recognition, Illegal Parkir Detection, Android Sense",
-      "Vehicles Counting And Classification",
-      "Area Monitoring",
-      "Face Recognition",
-      "Crime Detection",
-      "People Counting & Crowd Understanding",
+      'Traffic Analytic: License Plate Recognition, Illegal Parkir Detection, Android Sense',
+      'Vehicles Counting And Classification',
+      'Area Monitoring',
+      'Face Recognition',
+      'Crime Detection',
+      'People Counting & Crowd Understanding',
     ],
-    images: ["/produk/arvis/Dashboard1.png"],
+    images: ['/src/assets/arvis.jpg'],
   },
   {
-    id: "tripisia",
-    name: "Tripisia",
-    iconPath: "/produk_icon/tripisia_icon.png",
+    id: 'tripisia',
+    name: 'Tripisia',
+    iconPath: '/produk_icon/tripisia_icon.png',
     description:
-      "Tripisia adalah sebuah aplikasi trip planner berbasis website dan mobile yang memudahkan pengguna untuk melakukan reservasi tiket transportasi, hotel, dan tiket pariwisata.",
-    salesOptions: ["Subscription (Berlangganan)", "Jual Putus"],
-    platforms: ["WEBSITE", "ANDROID"],
+      'Tripisia adalah sebuah aplikasi trip planner berbasis website dan mobile yang memudahkan pengguna untuk melakukan reservasi tiket transportasi, hotel, dan tiket pariwisata.',
+    salesOptions: ['Subscription (Berlangganan)', 'Jual Putus'],
+    platforms: ['WEBSITE', 'ANDROID'],
     features: [
-      "Trip Planner Apps",
-      "Itineracy Creator",
-      "Flight, Bus, Ticket Sales",
-      "Event/Tourism Ticket Sales",
-      "Tourism Application",
-      "Trip Packages",
+      'Trip Planner Apps',
+      'Itineracy Creator',
+      'Flight, Bus, Ticket Sales',
+      'Event/Tourism Ticket Sales',
+      'Tourism Application',
+      'Trip Packages',
     ],
-    images: ["/produk/tripisia/picture.jpeg"],
+    images: ['/src/assets/tripisia.jpg'],
   },
   {
-    id: "smart-waste",
-    name: "Smart Waste Bin",
-    iconPath: "/produk_icon/smart wastebin_icon.png",
+    id: 'smart-waste',
+    name: 'Smart Waste Bin',
+    iconPath: '/produk_icon/smart wastebin_icon.png',
     description:
-      "Smart waste bin adalah tong sampah yang dilengkapi dengan teknologi sensor dan konektivitas internet untuk memantau dan mengelola pengumpulan sampah secara lebih efisien.",
-    salesOptions: ["One-Time Charge (Jual Putus)"],
-    platforms: ["WEBSITE"],
+      'Smart waste bin adalah tong sampah yang dilengkapi dengan teknologi sensor dan konektivitas internet untuk memantau dan mengelola pengumpulan sampah secara lebih efisien.',
+    salesOptions: ['One-Time Charge (Jual Putus)'],
+    platforms: ['WEBSITE'],
     features: [
-      "Monitoring Kapasitas Tong Sampah",
-      "Pemantauan volume sampah secara realtime",
-      "Rute dan jadwal pengangkutan sampah otomatis",
+      'Monitoring Kapasitas Tong Sampah',
+      'Pemantauan volume sampah secara realtime',
+      'Rute dan jadwal pengangkutan sampah otomatis',
     ],
-    images: ["/produk/smartwastebin/ss_wastebin.png"],
+    images: ['/src/assets/wastebin.jpg'],
   },
   {
-    id: "pod-ex",
-    name: "POD-EX",
-    iconPath: "/produk_icon/Logo-hitam.png",
+    id: 'pod-ex',
+    name: 'POD-EX',
+    iconPath: '/produk_icon/Logo-hitam.png',
     description:
-      "POD-EX (Personalized On-Demand Exchange) adalah sistem kartu pengenal pintar, menggunakan teknologi NFC yang mengintergrasikan kartu pengenal dengan sistem.",
-    salesOptions: ["Coming Soon"],
-    platforms: ["Coming Soon"],
-    features: ["Coming Soon"],
-    images: ["/produk/pod-ex/podex-asset1.png"],
+      'POD-EX (Personalized On-Demand Exchange) adalah sistem kartu pengenal pintar, menggunakan teknologi NFC yang mengintergrasikan kartu pengenal dengan sistem.',
+    salesOptions: ['Coming Soon'],
+    platforms: ['Coming Soon'],
+    features: ['Coming Soon'],
+    images: ['/produk/pod-ex/podex-asset1.png'],
   },
   {
-    id: "smart-farming",
-    name: "Smart Farming",
-    iconPath: "/produk_icon/smart farming_icon.png",
+    id: 'smart-farming',
+    name: 'Smart Farming',
+    iconPath: '/produk_icon/smart farming_icon.png',
     description:
-      "Smart Farming merupakan platform yang mendukung perkembangan perkebunan dengan sistem komprehensif hulu ke hilir untuk membantu mendata, mengontrol dan mengawasi perkebunan.",
-    salesOptions: ["Subscription (Sewa)", "One-Time Charge (Jual Putus)"],
-    platforms: ["WEBSITE"],
+      'Smart Farming merupakan platform yang mendukung perkembangan perkebunan dengan sistem komprehensif hulu ke hilir untuk membantu mendata, mengontrol dan mengawasi perkebunan.',
+    salesOptions: ['Subscription (Sewa)', 'One-Time Charge (Jual Putus)'],
+    platforms: ['WEBSITE'],
     features: [
-      "Monitoring Kelembaban Tanah",
-      "Monitoring Kelembaban Udara",
-      "Monitoring Suhu Udara",
-      "Monitoring Suhu Tanah",
-      "Monitoring Radiasi Matahari",
-      "Monitoring Curah Hujan",
-      "Monitoring Nitrogen",
-      "Rekomendasi Pemupukan dan Penyiraman",
+      'Monitoring Kelembaban Tanah',
+      'Monitoring Kelembaban Udara',
+      'Monitoring Suhu Udara',
+      'Monitoring Suhu Tanah',
+      'Monitoring Radiasi Matahari',
+      'Monitoring Curah Hujan',
+      'Monitoring Nitrogen',
+      'Rekomendasi Pemupukan dan Penyiraman',
     ],
-    images: ["/produk/smartperkebunan/dashboard_smartbun.jpeg"],
+    images: ['/src/assets/smartbun.jpg'],
   },
 ];
 

@@ -1,109 +1,115 @@
-import { useState } from "react";
-import { ArrowRight, Microchip, Terminal, TrendingUp } from "lucide-react";
+import { useState } from 'react';
+import { ArrowRight, Microchip, Terminal, TrendingUp } from 'lucide-react';
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
-} from "@material-tailwind/react";
-import "./assets/font.css";
-import Bumper1 from "./assets/bumper1.mp4";
+} from '@material-tailwind/react';
+import './assets/font.css';
+import Bumper1 from './assets/bumper1.mp4';
 
 const PRODUCT_IMAGES = {
-  Podex: "src/assets/podex-asset2.png",
-  Arvis: "src/assets/Dashboard1.png",
-  "Smart Farming": "/produk/smartperkebunan/dashboard_smartbun.jpeg",
-  "Smart Waster": "/produk/smartwastebin/ss_wastebin.png",
-  Tripisia: "/produk/tripisia/picture.jpeg",
+  Podex: 'src/assets/podex-asset2.png',
+  Arvis: 'src/assets/arvis.jpg',
+  'Smart Farming': 'src/assets/smartbun.jpg',
+  'Smart Wastebin': 'src/assets/wastebin.jpg',
+  Tripisia: 'src/assets/tripisia.jpg',
 };
 
 const PRODUCT_DESCRIPTIONS = {
   Podex:
-    "PODEX merupakan sebuah platform yang menghubungkan berbagai stakeholder dalam ekosistem pendidikan untuk memudahkan Lembaga Pendidikan dalam penyediaan magang dan penempatan kerja, memudahkan calon tenaga kerja dalam mendapatkan pekerjaan, dan memudahkan industry dalam mencari tenaga kerja sesuai kebutuhan.",
+    'PODEX merupakan sebuah platform yang menghubungkan berbagai stakeholder dalam ekosistem pendidikan untuk memudahkan Lembaga Pendidikan dalam penyediaan magang dan penempatan kerja, memudahkan calon tenaga kerja dalam mendapatkan pekerjaan, dan memudahkan industry dalam mencari tenaga kerja sesuai kebutuhan.',
   Arvis:
-    "ARVIS adalah sebuah platform yang dapat digunakan sebagai sumber belajar yang variatif dengan menggunakan teknologi Augmented Reality. ARVIS dapat digunakan untuk menampilkan benda-benda berupa 3D yang tidak dapat dihadirkan secara langsung.",
-  "Smart Farming":
-    "Merupakan sebuah layanan yang menggunakan teknologi IoT dan dibuat untuk memudahkan dalam memantau tumbuhan. Smart Farming dapat memantau tumbuhan secara realtime dan otomatis.",
-  "Smart Waster":
-    "Merupakan sebuah layanan yang menggunakan teknologi IoT untuk memudahkan dalam hal pengelolaan sampah. Smart Waste dapat memantau kapasitas tempat sampah secara realtime dan otomatis.",
+    'ARVIS adalah sebuah platform yang dapat digunakan sebagai sumber belajar yang variatif dengan menggunakan teknologi Augmented Reality. ARVIS dapat digunakan untuk menampilkan benda-benda berupa 3D yang tidak dapat dihadirkan secara langsung.',
+  'Smart Farming':
+    'Merupakan sebuah layanan yang menggunakan teknologi IoT dan dibuat untuk memudahkan dalam memantau tumbuhan. Smart Farming dapat memantau tumbuhan secara realtime dan otomatis.',
+  'Smart Wastebin':
+    'Merupakan sebuah layanan yang menggunakan teknologi IoT untuk memudahkan dalam hal pengelolaan sampah. Smart Waste dapat memantau kapasitas tempat sampah secara realtime dan otomatis.',
   Tripisia:
-    "Platform untuk mengelola dan mengatur perjalanan bisnis (Business Trip) secara digital. Memudahkan perusahaan dalam mengatur perjalanan dan pengeluaran karyawan.",
+    'Platform untuk mengelola dan mengatur perjalanan bisnis (Business Trip) secara digital. Memudahkan perusahaan dalam mengatur perjalanan dan pengeluaran karyawan.',
 };
 
-const PRODUCT = ["Podex", "Arvis", "Smart Farming", "Smart Waster", "Tripisia"];
+const PRODUCT = [
+  'Podex',
+  'Arvis',
+  'Smart Farming',
+  'Smart Wastebin',
+  'Tripisia',
+];
 
 const COMPANY_LOGOS = [
-  { src: "/Roadbotics logo.png" },
-  { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
-  { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
-  { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
-  { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
-  { src: "/src/assets/tamasia_icon_transparent.png", alt: "Tripisia" },
+  { src: '/Roadbotics logo.png' },
+  { src: '/src/assets/arvis_icon.png', alt: 'Arvis' },
+  { src: 'src/assets/Logo full-hitam.png', alt: 'Podex' },
+  { src: '/src/assets/smart-farming.jpeg', alt: 'Smart Farming' },
+  { src: '/src/assets/swb.jpeg', alt: 'Smart Waste Bin' },
+  { src: '/src/assets/tamasia_icon_transparent.png', alt: 'Tripisia' },
   // LOOP
-  { src: "/Roadbotics logo.png" },
-  { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
-  { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
-  { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
-  { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
-  { src: "/src/assets/tamasia_icon_transparent.png", alt: "Tripisia" },
+  { src: '/Roadbotics logo.png' },
+  { src: '/src/assets/arvis_icon.png', alt: 'Arvis' },
+  { src: 'src/assets/Logo full-hitam.png', alt: 'Podex' },
+  { src: '/src/assets/smart-farming.jpeg', alt: 'Smart Farming' },
+  { src: '/src/assets/swb.jpeg', alt: 'Smart Waste Bin' },
+  { src: '/src/assets/tamasia_icon_transparent.png', alt: 'Tripisia' },
 ];
 
 const CAROUSEL_ITEMS = [
   {
     id: 1,
-    link: "placeholder/link",
-    image: "src/assets/berita_foto-1.JPG",
-    title: "Smart Wastebin",
+    link: 'placeholder/link',
+    image: 'src/assets/berita_foto-1.JPG',
+    title: 'Smart Wastebin',
     description:
-      "Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah",
+      'Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah',
   },
   {
     id: 2,
-    link: "placeholder/link",
-    image: "src/assets/ceo_summit2024_2.jpeg",
-    title: "ITB CEO Summit 2024",
+    link: 'placeholder/link',
+    image: 'src/assets/ceo_summit2024_2.jpeg',
+    title: 'ITB CEO Summit 2024',
     description:
-      "ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari",
+      'ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari',
   },
   {
     id: 3,
-    link: "placeholder/link",
-    image: "src/assets/iciss1.jpeg",
-    title: "ICISS",
+    link: 'placeholder/link',
+    image: 'src/assets/iciss1.jpeg',
+    title: 'ICISS',
     description:
-      "Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.",
+      'Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.',
   },
 ];
 
 const PREVIEW_VIDEOS = [
   {
     id: 1,
-    src: "/src/assets/stereo-video-1.mp4",
-    alt: "Warehouse View 1",
+    src: '/src/assets/arvis_vid.mp4',
+    alt: 'Warehouse View 1',
   },
   {
     id: 2,
-    src: "/src/assets/stereo-video-2.mp4",
-    alt: "Warehouse View 2",
+    src: '/src/assets/tripisia_vid.mp4',
+    alt: 'Warehouse View 2',
   },
   {
     id: 3,
-    src: "/src/assets/stereo-video-3.mp4",
-    alt: "Warehouse View 3",
+    src: '/src/assets/smartbun_vid.mp4',
+    alt: 'Warehouse View 3',
   },
   {
     id: 4,
-    src: "/src/assets/stereo-video-4.mp4",
-    alt: "Warehouse View 4",
+    src: '/src/assets/wastebin_vid.mp4',
+    alt: 'Warehouse View 4',
   },
 ];
-const THEME = {
-  primary: "rgb(0, 77, 64)", // hijau tua
-  white: "rgb(255, 255, 255)",
-  light: "rgb(250, 250, 250)",
-};
+// const THEME = {
+//   primary: 'rgb(0, 77, 64)', // hijau tua
+//   white: 'rgb(255, 255, 255)',
+//   light: 'rgb(250, 250, 250)',
+// };
 
 const Home = () => {
-  const [open, setOpen] = useState("Podex");
+  const [open, setOpen] = useState('Podex');
   const [activeSlide, setActiveSlide] = useState(0);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
@@ -114,7 +120,7 @@ const Home = () => {
 
   const prevSlide = () => {
     setActiveSlide((prev) =>
-      prev === 0 ? CAROUSEL_ITEMS.length - 1 : prev - 1,
+      prev === 0 ? CAROUSEL_ITEMS.length - 1 : prev - 1
     );
   };
 
@@ -138,7 +144,7 @@ const Home = () => {
                 Layanan Cerdas Indonesia
               </h1>
               <p className="mt-2 text-2xl max-w-3xl poppins-regular italic">
-                "ACCELERATE YOUR BUSINESS"
+                &quot;ACCELERATE YOUR BUSINESS&quot;
               </p>
               <p className="mt-2 text-xl max-w-3xl poppins-regular">
                 LAYANAN YANG AKAN MEMUDAHKAN DAN MENGEFISIENSI BISNIS ANDA
@@ -285,6 +291,30 @@ const Home = () => {
               </p>
             </div>
 
+            <div className="relative flex gap-2 mb-4">
+              {PREVIEW_VIDEOS.map((items, index) => {
+                return (
+                  <>
+                    <div
+                      id={index}
+                      className="aspect-[16/9] w-[25%] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg"
+                    >
+                      <video
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                      >
+                        <source src={items.src} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+
             <div className="relative flex gap-2">
               <div className="aspect-[16/9] w-[50%] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
                 <video
@@ -298,6 +328,7 @@ const Home = () => {
                   Your browser does not support the video tag.
                 </video>
               </div>
+
               <div className="aspect-[16/9] w-[50%] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
                 <video
                   className="w-full h-full object-cover"
@@ -337,8 +368,8 @@ const Home = () => {
                     key={item.id}
                     className={`absolute w-full h-full transition-all duration-500 ease-in-out transform ${
                       index === activeSlide
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 translate-x-full"
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 translate-x-full'
                     }`}
                   >
                     <a href={item.link}>
@@ -377,7 +408,7 @@ const Home = () => {
                     key={index}
                     onClick={() => setActiveSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all ${
-                      index === activeSlide ? "bg-[#006666]" : "bg-[#009f9a]/30"
+                      index === activeSlide ? 'bg-[#006666]' : 'bg-[#009f9a]/30'
                     }`}
                   />
                 ))}
