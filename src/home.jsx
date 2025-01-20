@@ -1,102 +1,106 @@
-import { useState, useEffect } from "react";
-import { ArrowRight, Microchip, Terminal, TrendingUp } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { ArrowRight, Microchip, Terminal, TrendingUp } from 'lucide-react';
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
-} from "@material-tailwind/react";
-import "./assets/font.css";
-import Bumper1 from "./assets/bumper1.mp4";
+} from '@material-tailwind/react';
+import './assets/font.css';
+import Bumper1 from './assets/bumper1.mp4';
+import { useNavigate } from 'react-router-dom';
 
 const PRODUCT_IMAGES = {
-  Podex: "src/assets/podex-asset2.png",
-  Arvis: "src/assets/arvis.jpg",
-  "Smart Farming": "src/assets/smartbun.jpg",
-  "Smart Wastebin": "src/assets/wastebin.jpg",
-  Tripisia: "src/assets/tripisia.jpg",
+  Podex: 'src/assets/podex_wide.png',
+  Arvis: 'src/assets/arvis_wide.png',
+  'Smart Farming': 'src/assets/smartbun_wide.png',
+  'Smart Wastebin': 'src/assets/wastebin_wide.png',
+  Tripisia: 'src/assets/tripisia_wide.png',
 };
 
 const PRODUCT_DESCRIPTIONS = {
   Podex:
-    "PODEX merupakan sebuah platform yang menghubungkan berbagai stakeholder dalam ekosistem pendidikan untuk memudahkan Lembaga Pendidikan dalam penyediaan magang dan penempatan kerja, memudahkan calon tenaga kerja dalam mendapatkan pekerjaan, dan memudahkan industry dalam mencari tenaga kerja sesuai kebutuhan.",
+    'PODEX merupakan sebuah platform yang menghubungkan berbagai stakeholder dalam ekosistem pendidikan untuk memudahkan Lembaga Pendidikan dalam penyediaan magang dan penempatan kerja, memudahkan calon tenaga kerja dalam mendapatkan pekerjaan, dan memudahkan industry dalam mencari tenaga kerja sesuai kebutuhan.',
   Arvis:
-    "ARVIS adalah sebuah platform yang dapat digunakan sebagai sumber belajar yang variatif dengan menggunakan teknologi Augmented Reality. ARVIS dapat digunakan untuk menampilkan benda-benda berupa 3D yang tidak dapat dihadirkan secara langsung.",
-  "Smart Farming":
-    "Merupakan sebuah layanan yang menggunakan teknologi IoT dan dibuat untuk memudahkan dalam memantau tumbuhan. Smart Farming dapat memantau tumbuhan secara realtime dan otomatis.",
-  "Smart Wastebin":
-    "Merupakan sebuah layanan yang menggunakan teknologi IoT untuk memudahkan dalam hal pengelolaan sampah. Smart Waste dapat memantau kapasitas tempat sampah secara realtime dan otomatis.",
+    'ARVIS adalah sebuah platform yang dapat digunakan sebagai sumber belajar yang variatif dengan menggunakan teknologi Augmented Reality. ARVIS dapat digunakan untuk menampilkan benda-benda berupa 3D yang tidak dapat dihadirkan secara langsung.',
+  'Smart Farming':
+    'Merupakan sebuah layanan yang menggunakan teknologi IoT dan dibuat untuk memudahkan dalam memantau tumbuhan. Smart Farming dapat memantau tumbuhan secara realtime dan otomatis.',
+  'Smart Wastebin':
+    'Merupakan sebuah layanan yang menggunakan teknologi IoT untuk memudahkan dalam hal pengelolaan sampah. Smart Waste dapat memantau kapasitas tempat sampah secara realtime dan otomatis.',
   Tripisia:
-    "Platform untuk mengelola dan mengatur perjalanan bisnis (Business Trip) secara digital. Memudahkan perusahaan dalam mengatur perjalanan dan pengeluaran karyawan.",
+    'Platform untuk mengelola dan mengatur perjalanan bisnis (Business Trip) secara digital. Memudahkan perusahaan dalam mengatur perjalanan dan pengeluaran karyawan.',
 };
 
 const PRODUCT = [
-  "Podex",
-  "Arvis",
-  "Smart Farming",
-  "Smart Wastebin",
-  "Tripisia",
+  'Podex',
+  'Arvis',
+  'Smart Farming',
+  'Smart Wastebin',
+  'Tripisia',
 ];
 
 const COMPANY_LOGOS = [
-  { src: "/Roadbotics logo.png" },
-  { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
-  { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
-  { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
-  { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
-  { src: "/src/assets/tamasia_icon_transparent.png", alt: "Tripisia" },
+  { src: '/Roadbotics logo.png' },
+  { src: '/src/assets/arvis_icon.png', alt: 'Arvis' },
+  { src: 'src/assets/Logo full-hitam.png', alt: 'Podex' },
+  { src: '/src/assets/smart-farming.jpeg', alt: 'Smart Farming' },
+  { src: '/src/assets/swb.jpeg', alt: 'Smart Waste Bin' },
+  { src: '/src/assets/tamasia_icon_transparent.png', alt: 'Tripisia' },
   // LOOP
-  { src: "/Roadbotics logo.png" },
-  { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
-  { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
-  { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
-  { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
-  { src: "/src/assets/tamasia_icon_transparent.png", alt: "Tripisia" },
+  { src: '/Roadbotics logo.png' },
+  { src: '/src/assets/arvis_icon.png', alt: 'Arvis' },
+  { src: 'src/assets/Logo full-hitam.png', alt: 'Podex' },
+  { src: '/src/assets/smart-farming.jpeg', alt: 'Smart Farming' },
+  { src: '/src/assets/swb.jpeg', alt: 'Smart Waste Bin' },
+  { src: '/src/assets/tamasia_icon_transparent.png', alt: 'Tripisia' },
 ];
 
 const CAROUSEL_ITEMS = [
   {
     id: 1,
-    link: "/berita#smart-wastebin",
-    image: "src/assets/berita_foto-1.JPG",
-    title: "Smart Wastebin",
-    description: "Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah",
+    link: '/berita#smart-wastebin',
+    image: 'src/assets/berita_foto-1.JPG',
+    title: 'Smart Wastebin',
+    description:
+      'Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah',
   },
   {
     id: 2,
-    link: "/berita#itb-summit",
-    image: "src/assets/ceo_summit2024_2.jpeg",
-    title: "ITB CEO Summit 2024",
-    description: "ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari",
+    link: '/berita#itb-summit',
+    image: 'src/assets/ceo_summit2024_2.jpeg',
+    title: 'ITB CEO Summit 2024',
+    description:
+      'ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari',
   },
   {
     id: 3,
-    link: "/berita#iciss",
-    image: "src/assets/iciss1.jpeg",
-    title: "ICISS",
-    description: "Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.",
+    link: '/berita#iciss',
+    image: 'src/assets/iciss1.jpeg',
+    title: 'ICISS',
+    description:
+      'Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.',
   },
 ];
 
 const PREVIEW_VIDEOS = [
   {
     id: 1,
-    src: "/src/assets/arvis_vid.mp4",
-    alt: "Warehouse View 1",
+    src: '/src/assets/arvis_vid.mp4',
+    alt: 'Warehouse View 1',
   },
   {
     id: 2,
-    src: "/src/assets/tripisia_vid.mp4",
-    alt: "Warehouse View 2",
+    src: '/src/assets/tripisia_vid.mp4',
+    alt: 'Warehouse View 2',
   },
   {
     id: 3,
-    src: "/src/assets/smartbun_vid.mp4",
-    alt: "Warehouse View 3",
+    src: '/src/assets/smartbun_vid.mp4',
+    alt: 'Warehouse View 3',
   },
   {
     id: 4,
-    src: "/src/assets/wastebin_vid.mp4",
-    alt: "Warehouse View 4",
+    src: '/src/assets/wastebin_vid.mp4',
+    alt: 'Warehouse View 4',
   },
 ];
 // const THEME = {
@@ -107,14 +111,14 @@ const PREVIEW_VIDEOS = [
 
 const Home = () => {
   const navigate = useNavigate();
-  const [open, setOpen] = useState("Podex");
+  const [open, setOpen] = useState('Podex');
   const [activeSlide, setActiveSlide] = useState(0);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
-useEffect(() => {
+  useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSlide((prevSlide) => 
+      setActiveSlide((prevSlide) =>
         prevSlide === CAROUSEL_ITEMS.length - 1 ? 0 : prevSlide + 1
       );
     }, 5000);
@@ -123,13 +127,13 @@ useEffect(() => {
   }, []);
 
   const nextSlide = () => {
-    setActiveSlide((prevSlide) => 
+    setActiveSlide((prevSlide) =>
       prevSlide === CAROUSEL_ITEMS.length - 1 ? 0 : prevSlide + 1
     );
   };
 
   const prevSlide = () => {
-    setActiveSlide((prevSlide) => 
+    setActiveSlide((prevSlide) =>
       prevSlide === 0 ? CAROUSEL_ITEMS.length - 1 : prevSlide - 1
     );
   };
@@ -172,7 +176,7 @@ useEffect(() => {
               </button>
             </a>
             <button
-              onClick={() => navigate("/contact")}
+              onClick={() => navigate('/contact')}
               className="bg-[#009f9a] text-white px-6 py-2 rounded-full shadow-md hover:bg-white hover:text-[#009f9a] transition-colors flex items-center gap-2"
             >
               <span>Contact Us</span>
@@ -199,7 +203,7 @@ useEffect(() => {
               <ServiceCard
                 icon={
                   <Microchip
-                     size={48}
+                    size={48}
                     strokeWidth={1.25}
                     className="text-[#006666]"
                   />
@@ -285,8 +289,7 @@ useEffect(() => {
                 {PRODUCT.map((product) => (
                   <Accordion key={product} open={open === product}>
                     <AccordionHeader
-                      onClick={() =>
-                        handleOpen(product)}
+                      onClick={() => handleOpen(product)}
                       className="text-[#006666] hover:text-[#009f9a] poppins-semibold"
                     >
                       {product}
@@ -367,7 +370,7 @@ useEffect(() => {
             <div className="flex justify-center mt-8 gap-8">
               <button
                 onClick={() => {
-                  navigate("/ai-solution");
+                  navigate('/ai-solution');
                 }}
                 className="bg-white text-xl text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2"
               >
@@ -376,7 +379,7 @@ useEffect(() => {
               </button>
               <button
                 onClick={() => {
-                  navigate("/iot-solution");
+                  navigate('/iot-solution');
                 }}
                 className="bg-white text-xl text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2"
               >
@@ -400,10 +403,10 @@ useEffect(() => {
                     key={item.id}
                     className={`absolute w-full h-full transition-all duration-700 ease-in-out transform ${
                       index === activeSlide
-                        ? "opacity-100 translate-x-0"
+                        ? 'opacity-100 translate-x-0'
                         : index < activeSlide
-                        ? "opacity-0 -translate-x-full"
-                        : "opacity-0 translate-x-full"
+                        ? 'opacity-0 -translate-x-full'
+                        : 'opacity-0 translate-x-full'
                     }`}
                   >
                     <a href={item.link} className="block h-full">
@@ -415,9 +418,7 @@ useEffect(() => {
                     </a>
                     <div className="absolute bottom-0 left-0 right-0 bg-[#006666] bg-opacity-90 text-white p-4 transform transition-transform duration-500">
                       <h3 className="text-xl font-semibold">{item.title}</h3>
-                      <p className="text-base mt-2">
-                        {item.description}
-                      </p>
+                      <p className="text-base mt-2">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -428,8 +429,7 @@ useEffect(() => {
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-[#009f9a] text-[#006666] hover:text-white rounded-full p-3 shadow-lg transition-all duration-300"
                 aria-label="Previous slide"
               >
-                <span className="sr-only">Previous</span>
-                ←
+                <span className="sr-only">Previous</span>←
               </button>
 
               <button
@@ -437,8 +437,7 @@ useEffect(() => {
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-[#009f9a] text-[#006666] hover:text-white rounded-full p-3 shadow-lg transition-all duration-300"
                 aria-label="Next slide"
               >
-                <span className="sr-only">Next</span>
-                →
+                <span className="sr-only">Next</span>→
               </button>
 
               <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex justify-center space-x-2">
@@ -447,7 +446,7 @@ useEffect(() => {
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === activeSlide ? "bg-white" : "bg-white/30"
+                      index === activeSlide ? 'bg-white' : 'bg-white/30'
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
