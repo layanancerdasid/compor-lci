@@ -25,7 +25,9 @@ const ProductCard = ({ product, isActive, onClick }) => {
       </div>
       <div className="text-left poppins-semibold">
         <h3
-          className={`font-medium ${isActive ? "text-[#006666]" : "text-[#006666]/80"}`}
+          className={`font-medium ${
+            isActive ? "text-[#006666]" : "text-[#006666]/80"
+          }`}
         >
           {product.name}
         </h3>
@@ -50,11 +52,11 @@ const ProductDetail = ({ product }) => {
         </h1>
 
         {product.images && (
-          <div className="mb-12 rounded-2xl overflow-hidden shadow-lg">
+          <div className="mb-12 h-[45vh] rounded-2xl overflow-hidden shadow-lg">
             <img
               src={product.images[0]}
               alt={product.name}
-              className="w-full h-80 object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
         )}
@@ -149,7 +151,7 @@ const products = [
       "Crime Detection",
       "People Counting & Crowd Understanding",
     ],
-    images: ["/produk/arvis/Dashboard1.png"],
+    images: ["/src/assets/arvis.jpg"],
   },
   {
     id: "tripisia",
@@ -167,7 +169,7 @@ const products = [
       "Tourism Application",
       "Trip Packages",
     ],
-    images: ["/produk/tripisia/picture.jpeg"],
+    images: ["/src/assets/tripisia.jpg"],
   },
   {
     id: "smart-waste",
@@ -182,7 +184,7 @@ const products = [
       "Pemantauan volume sampah secara realtime",
       "Rute dan jadwal pengangkutan sampah otomatis",
     ],
-    images: ["/produk/smartwastebin/ss_wastebin.png"],
+    images: ["/src/assets/wastebin.jpg"],
   },
   {
     id: "pod-ex",
@@ -213,7 +215,7 @@ const products = [
       "Monitoring Nitrogen",
       "Rekomendasi Pemupukan dan Penyiraman",
     ],
-    images: ["/produk/smartperkebunan/dashboard_smartbun.jpeg"],
+    images: ["/src/assets/smartfarming_rev4.png"],
   },
 ];
 

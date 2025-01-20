@@ -18,10 +18,10 @@ const Visi = () => {
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="space-y-12">
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6 poppins-semibold">
+            <h2 className="text-4xl font-semibold text-center text-gray-900 mb-6 poppins-semibold">
               VISI PERUSAHAAN
             </h2>
-            <p className="text-gray-600 text-lg poppins-regular">
+            <p className="text-gray-600 text-xl poppins-regular">
               Menjadi salah satu perusahaan yang berperan aktif dalam
               menciptakan dunia yang lebih cerdas, terhubung, efisien, dan
               berkelanjutan melalui solusi inovatif yang memanfaatkan AI dan
@@ -30,10 +30,10 @@ const Visi = () => {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6 poppins-semibold">
+            <h2 className="text-4xl font-semibold text-center text-gray-900 mb-6 poppins-semibold">
               MISI PERUSAHAAN
             </h2>
-            <p className="text-gray-600 text-lg poppins-regular">
+            <p className="text-gray-600 text-xl poppins-regular text-center">
               Membentuk masa depan yang lebih cerdas melalui inovasi
               berkelanjutan dalam teknologi AI dan IoT
             </p>

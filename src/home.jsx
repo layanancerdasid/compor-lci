@@ -10,10 +10,10 @@ import Bumper1 from "./assets/bumper1.mp4";
 
 const PRODUCT_IMAGES = {
   Podex: "src/assets/podex-asset2.png",
-  Arvis: "src/assets/Dashboard1.png",
-  "Smart Farming": "/produk/smartperkebunan/dashboard_smartbun.jpeg",
-  "Smart Waster": "/produk/smartwastebin/ss_wastebin.png",
-  Tripisia: "/produk/tripisia/picture.jpeg",
+  Arvis: "src/assets/arvis.jpg",
+  "Smart Farming": "src/assets/smartbun.jpg",
+  "Smart Wastebin": "src/assets/wastebin.jpg",
+  Tripisia: "src/assets/tripisia.jpg",
 };
 
 const PRODUCT_DESCRIPTIONS = {
@@ -23,13 +23,19 @@ const PRODUCT_DESCRIPTIONS = {
     "ARVIS adalah sebuah platform yang dapat digunakan sebagai sumber belajar yang variatif dengan menggunakan teknologi Augmented Reality. ARVIS dapat digunakan untuk menampilkan benda-benda berupa 3D yang tidak dapat dihadirkan secara langsung.",
   "Smart Farming":
     "Merupakan sebuah layanan yang menggunakan teknologi IoT dan dibuat untuk memudahkan dalam memantau tumbuhan. Smart Farming dapat memantau tumbuhan secara realtime dan otomatis.",
-  "Smart Waster":
+  "Smart Wastebin":
     "Merupakan sebuah layanan yang menggunakan teknologi IoT untuk memudahkan dalam hal pengelolaan sampah. Smart Waste dapat memantau kapasitas tempat sampah secara realtime dan otomatis.",
   Tripisia:
     "Platform untuk mengelola dan mengatur perjalanan bisnis (Business Trip) secara digital. Memudahkan perusahaan dalam mengatur perjalanan dan pengeluaran karyawan.",
 };
 
-const PRODUCT = ["Podex", "Arvis", "Smart Farming", "Smart Waster", "Tripisia"];
+const PRODUCT = [
+  "Podex",
+  "Arvis",
+  "Smart Farming",
+  "Smart Wastebin",
+  "Tripisia",
+];
 
 const COMPANY_LOGOS = [
   { src: "/Roadbotics logo.png" },
@@ -74,32 +80,33 @@ const CAROUSEL_ITEMS = [
 const PREVIEW_VIDEOS = [
   {
     id: 1,
-    src: "/src/assets/stereo-video-1.mp4",
+    src: "/src/assets/arvis_vid.mp4",
     alt: "Warehouse View 1",
   },
   {
     id: 2,
-    src: "/src/assets/stereo-video-2.mp4",
+    src: "/src/assets/tripisia_vid.mp4",
     alt: "Warehouse View 2",
   },
   {
     id: 3,
-    src: "/src/assets/stereo-video-3.mp4",
+    src: "/src/assets/smartbun_vid.mp4",
     alt: "Warehouse View 3",
   },
   {
     id: 4,
-    src: "/src/assets/stereo-video-4.mp4",
+    src: "/src/assets/wastebin_vid.mp4",
     alt: "Warehouse View 4",
   },
 ];
-const THEME = {
-  primary: "rgb(0, 77, 64)", // hijau tua
-  white: "rgb(255, 255, 255)",
-  light: "rgb(250, 250, 250)",
-};
+// const THEME = {
+//   primary: 'rgb(0, 77, 64)', // hijau tua
+//   white: 'rgb(255, 255, 255)',
+//   light: 'rgb(250, 250, 250)',
+// };
 
 const Home = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState("Podex");
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -133,7 +140,7 @@ useEffect(() => {
   return (
     <>
       <div className="min-h-screen">
-        <section className="relative h-[100vh]">
+        <section className="relative h-[80vh]">
           <video
             className="absolute inset-0 w-full h-full object-cover"
             autoPlay
@@ -144,32 +151,40 @@ useEffect(() => {
             <source src={Bumper1} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 bg-[#006666] bg-opacity-60">
+          <div className="absolute inset-0 bg-[#044640] bg-opacity-60">
             <div className="flex flex-col items-center justify-center h-full text-white text-center px-4">
               <h1 className="text-4xl md:text-6xl font-bold poppins-semibold">
                 Layanan Cerdas Indonesia
               </h1>
               <p className="mt-2 text-2xl max-w-3xl poppins-regular italic">
-                "ACCELERATE YOUR BUSINESS"
+                &quot;ACCELERATE YOUR BUSINESS&quot;
               </p>
               <p className="mt-2 text-xl max-w-3xl poppins-regular">
                 LAYANAN YANG AKAN MEMUDAHKAN DAN MENGEFISIENSI BISNIS ANDA
               </p>
-              <div className="mt-8 flex space-x-4 poppins-medium">
-                <button className="bg-white text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2">
-                  <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="bg-[#009f9a] text-white px-6 py-2 rounded-full shadow-md hover:bg-white hover:text-[#009f9a] transition-colors flex items-center gap-2">
-                  <span>Contact Us</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
             </div>
+          </div>
+          <div className="absolute top-[70vh] left-8 flex space-x-4 poppins-medium">
+            <a href="#services">
+              <button className="bg-white text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2">
+                <span>Learn More</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </a>
+            <button
+              onClick={() => navigate("/contact")}
+              className="bg-[#009f9a] text-white px-6 py-2 rounded-full shadow-md hover:bg-white hover:text-[#009f9a] transition-colors flex items-center gap-2"
+            >
+              <span>Contact Us</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </section>
 
-        <section className="py-16 bg-white border-t border-b border-[#009f9a]/10">
+        <section
+          id="services"
+          className=" py-16 bg-white border-t border-b border-[#009f9a]/10"
+        >
           <div className="container text-center mx-auto px-4">
             <div className="mb-12">
               <h2 className="text-2xl font-bold mb-2 text-[#006666] poppins-semibold">
@@ -290,15 +305,40 @@ useEffect(() => {
           <div className="container mx-auto px-4">
             <div className="mb-8">
               <h2 className="text-4xl font-bold text-[#006666] poppins-semibold">
-                Highlight
+                Our Technologies
               </h2>
               <p className="text-xl mt-2 text-[#009f9a] poppins-regular">
-                Our product.
+                Kami memperpadukan Teknologi Internet of Things dan Artificial
+                Intelligence sebagai solusi pada produk kami
               </p>
             </div>
 
-            <div className="relative">
-              <div className="aspect-[16/9] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
+            <div className="relative flex gap-2 mb-4">
+              {PREVIEW_VIDEOS.map((items, index) => {
+                return (
+                  <>
+                    <div
+                      id={index}
+                      className="aspect-[16/9] w-[25%] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg"
+                    >
+                      <video
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                      >
+                        <source src={items.src} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+
+            <div className="relative flex gap-2">
+              <div className="aspect-[16/9] w-[50%] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
                 <video
                   className="w-full h-full object-cover"
                   autoPlay
@@ -306,10 +346,43 @@ useEffect(() => {
                   loop
                   playsInline
                 >
-                  <source src="/VID-20250116-WA0005.mp4" type="video/mp4" />
+                  <source src="/wastebin_1.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
+
+              <div className="aspect-[16/9] w-[50%] bg-white border-2 border-[#009f9a] rounded-lg overflow-hidden shadow-lg">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src="/wastebin_2.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div className="flex justify-center mt-8 gap-8">
+              <button
+                onClick={() => {
+                  navigate("/ai-solution");
+                }}
+                className="bg-white text-xl text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2"
+              >
+                <span>AI Solution</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/iot-solution");
+                }}
+                className="bg-white text-xl text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2"
+              >
+                <span>IoT Solution</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </section>

@@ -21,7 +21,7 @@ const Teknologi = () => {
         <section id="main-container">
           <div className="container mx-auto px-4 py-8">
             <div className="flex flex-col mb-5 mt-10">
-              <p className="text-lg text-justify poppins-regular">
+              <p className="text-2xl text-justify poppins-regular">
                 Dengan solusi IoT dan solusi AI yang Layanan Cerdas Indonesia
                 tawarkan, dimungkinkan adanya integrasi teknologi yang mendorong
                 inovasi dan meningkatkan efisiensi operasional bisnis anda.
@@ -33,7 +33,7 @@ const Teknologi = () => {
                 src="/teknologi1.png"
                 alt="teknologi"
               />
-              <p className="text-lg text-justify mt-5 poppins-regular">
+              <p className="text-2xl tracking-wider text-justify mt-5 poppins-regular">
                 Dari teknologi end to end berikut hasil yang diperoleh
                 diantaranya data yang akurat dan presisi serta data yang telah
                 diproses menjadi informasi yang diperlukan sesuai keperluan
@@ -49,7 +49,7 @@ const Teknologi = () => {
                 src="/teknologi2.png"
                 alt="teknologi"
               />
-              <p className="text-lg text-justify mt-5 poppins-regular">
+              <p className="text-2xl text-justify mt-5 poppins-regular">
                 Berikut adalah proses kami dalam mengolah data yang diperoleh
                 dari sistem IoT. Contohnya, big data yang diperoleh dapat
                 digunakan sebagai pendukung predictive analytics untuk memangkas
