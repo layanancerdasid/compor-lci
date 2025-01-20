@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, Microchip, Terminal, TrendingUp } from "lucide-react";
 import {
   Accordion,
@@ -50,27 +50,24 @@ const COMPANY_LOGOS = [
 const CAROUSEL_ITEMS = [
   {
     id: 1,
-    link: "placeholder/link",
+    link: "/berita#smart-wastebin",
     image: "src/assets/berita_foto-1.JPG",
     title: "Smart Wastebin",
-    description:
-      "Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah",
+    description: "Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah",
   },
   {
     id: 2,
-    link: "placeholder/link",
+    link: "/berita#itb-summit",
     image: "src/assets/ceo_summit2024_2.jpeg",
     title: "ITB CEO Summit 2024",
-    description:
-      "ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari",
+    description: "ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari",
   },
   {
     id: 3,
-    link: "placeholder/link",
+    link: "/berita#iciss",
     image: "src/assets/iciss1.jpeg",
     title: "ICISS",
-    description:
-      "Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.",
+    description: "Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.",
   },
 ];
 
@@ -108,16 +105,31 @@ const Home = () => {
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
-  };
+useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prevSlide) => 
+        prevSlide === CAROUSEL_ITEMS.length - 1 ? 0 : prevSlide + 1
+      );
+    }, 5000);
 
-  const prevSlide = () => {
-    setActiveSlide((prev) =>
-      prev === 0 ? CAROUSEL_ITEMS.length - 1 : prev - 1,
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setActiveSlide((prevSlide) => 
+      prevSlide === CAROUSEL_ITEMS.length - 1 ? 0 : prevSlide + 1
     );
   };
 
+  const prevSlide = () => {
+    setActiveSlide((prevSlide) => 
+      prevSlide === 0 ? CAROUSEL_ITEMS.length - 1 : prevSlide - 1
+    );
+  };
+
+  const goToSlide = (index) => {
+    setActiveSlide(index);
+  };
   return (
     <>
       <div className="min-h-screen">
@@ -172,7 +184,7 @@ const Home = () => {
               <ServiceCard
                 icon={
                   <Microchip
-                    size={48}
+                     size={48}
                     strokeWidth={1.25}
                     className="text-[#006666]"
                   />
@@ -258,7 +270,8 @@ const Home = () => {
                 {PRODUCT.map((product) => (
                   <Accordion key={product} open={open === product}>
                     <AccordionHeader
-                      onClick={() => handleOpen(product)}
+                      onClick={() =>
+                        handleOpen(product)}
                       className="text-[#006666] hover:text-[#009f9a] poppins-semibold"
                     >
                       {product}
@@ -308,26 +321,28 @@ const Home = () => {
             </h2>
 
             <div className="relative max-w-4xl mx-auto">
-              <div className="relative h-[400px] overflow-hidden rounded-xl">
+              <div className="relative h-96 overflow-hidden rounded-xl">
                 {CAROUSEL_ITEMS.map((item, index) => (
                   <div
                     key={item.id}
-                    className={`absolute w-full h-full transition-all duration-500 ease-in-out transform ${
+                    className={`absolute w-full h-full transition-all duration-700 ease-in-out transform ${
                       index === activeSlide
                         ? "opacity-100 translate-x-0"
+                        : index < activeSlide
+                        ? "opacity-0 -translate-x-full"
                         : "opacity-0 translate-x-full"
                     }`}
                   >
-                    <a href={item.link}>
+                    <a href={item.link} className="block h-full">
                       <img
                         src={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover"
                       />
                     </a>
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#006666] bg-opacity-90 text-white p-4">
-                      <h3 className="text-xl poppins-semibold">{item.title}</h3>
-                      <p className="poppins-regular text-base mt-2">
+                    <div className="absolute bottom-0 left-0 right-0 bg-[#006666] bg-opacity-90 text-white p-4 transform transition-transform duration-500">
+                      <h3 className="text-xl font-semibold">{item.title}</h3>
+                      <p className="text-base mt-2">
                         {item.description}
                       </p>
                     </div>
@@ -337,25 +352,31 @@ const Home = () => {
 
               <button
                 onClick={prevSlide}
-                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white hover:bg-[#009f9a] text-[#006666] hover:text-white rounded-r-lg p-2 shadow-lg transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-[#009f9a] text-[#006666] hover:text-white rounded-full p-3 shadow-lg transition-all duration-300"
+                aria-label="Previous slide"
               >
+                <span className="sr-only">Previous</span>
                 ←
               </button>
+
               <button
                 onClick={nextSlide}
-                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white hover:bg-[#009f9a] text-[#006666] hover:text-white rounded-l-lg p-2 shadow-lg transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-[#009f9a] text-[#006666] hover:text-white rounded-full p-3 shadow-lg transition-all duration-300"
+                aria-label="Next slide"
               >
+                <span className="sr-only">Next</span>
                 →
               </button>
 
-              <div className="flex justify-center mt-4 space-x-2">
+              <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex justify-center space-x-2">
                 {CAROUSEL_ITEMS.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setActiveSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      index === activeSlide ? "bg-[#006666]" : "bg-[#009f9a]/30"
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === activeSlide ? "bg-white" : "bg-white/30"
                     }`}
+                    aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
