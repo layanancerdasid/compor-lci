@@ -50,36 +50,28 @@ const AI = () => {
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-2xl px-4">
-            <h1 className="text-5xl font-light text-white mb-4">AI</h1>
+            <h1 className="text-5xl font-light text-white mb-4">
+              Artificial Intelligence
+            </h1>
             <p className="text-white/80 text-lg">Our Tech</p>
           </div>
         </div>
       </div>
 
-      <section className="container mx-auto my-8 px-4">
-        <p className="text-gray-700 leading-relaxed poppins-regular">
+      <section className="container mx-auto mt-8 px-4 ">
+        <p className="text-gray-700 leading-relaxed poppins-regular text-2xl text-center">
           Solusi AI dari Layanan Cerdas Indonesia menawarkan platform canggih
           untuk integrasi kecerdasan buatan di berbagai sektor, memungkinkan
-          pengembangan layanan yang cerdas, skalabel, dan efisien. Solusi AI
-          kami mempermudah proses yang kompleks, meningkatkan efisiensi
-          perangkat dan sistem, serta mendorong inovasi di industri yang
-          berkeinginan untuk meraih pertumbuhan dan keunggulan operasional.
-          Teknologi AI saat ini sangat vital di berbagai industri, tidak hanya
-          untuk meningkatkan efisiensi operasional tetapi juga untuk
-          memperlancar operasi bisnis melalui automasi cerdas, manajemen aset
-          yang lebih maju, dan kontrol biaya. Dengan solusi AI terdepan kami,
-          perusahaan dapat memanfaatkan kekuatan transformasi kecerdasan buatan
-          untuk mengoptimalkan operasi mereka dan mencapai keunggulan kompetitif
-          yang signifikan.
+          pengembangan layanan yang cerdas, skalabel, dan efisien.
         </p>
       </section>
 
-      <img className="mx-auto w-90 mt-5" src="/ai_solution.png" alt="AI" />
+      {/* <img className="mx-auto w-90 mt-5" src="/ai_solution.png" alt="AI" /> */}
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-12 poppins-semibold">
-            STUDI KASUS AI
+          <h2 className="text-2xl text-[#006666] font-bold text-center mb-12 poppins-semibold">
+            Studi Kasus AI
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
             {kasus.map((item, index) => {
@@ -99,6 +91,22 @@ const AI = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+      <section className="container mx-auto mb-40 px-4">
+        <div>
+          <p className="text-gray-700 leading-relaxed poppins-regular text-2xl text-center">
+            Solusi AI kami mempermudah proses yang kompleks, meningkatkan
+            efisiensi perangkat dan sistem, serta mendorong inovasi di industri
+            yang berkeinginan untuk meraih pertumbuhan dan keunggulan
+            operasional. Teknologi AI saat ini sangat vital di berbagai
+            industri, tidak hanya untuk meningkatkan efisiensi operasional
+            tetapi juga untuk memperlancar operasi bisnis melalui automasi
+            cerdas, manajemen aset yang lebih maju, dan kontrol biaya. Dengan
+            solusi AI terdepan kami, perusahaan dapat memanfaatkan kekuatan
+            transformasi kecerdasan buatan untuk mengoptimalkan operasi mereka
+            dan mencapai keunggulan kompetitif yang signifikan.
+          </p>
         </div>
       </section>
     </>

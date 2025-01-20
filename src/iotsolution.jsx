@@ -65,35 +65,39 @@ const IOT = () => {
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div className="max-w-2xl px-4">
-            <h1 className="text-5xl font-light text-white mb-4">AI</h1>
+            <h1 className="text-5xl font-light text-white mb-4">
+              Internet of Things
+            </h1>
             <p className="text-white/80 text-lg">Our Tech</p>
           </div>
         </div>
       </div>
 
-      <section className="container mx-auto my-8 px-4">
-        <p className="text-gray-700 leading-relaxed poppins-regular">
+      <section className="container mx-auto my-8 px-4 flex flex-col gap-8">
+        <p className="text-gray-700 text-2xl text-justify leading-relaxed poppins-regular">
           Solusi IoT yang Layanan Cerdas Indonesia tawarkan dapat membantu
           membangun layanan Internet of Things berbasis solusi Smart City
           Multisektoral dengan implementasi perangkat IoT, mengurangi
           kompleksitas, memastikan efisiensi perangkat, dan mendorong inovasi di
           seluruh industri yang mencari peluang pertumbuhan dan efisiensi
-          operasional. Kini teknologi IoT telah dapat diaplikasikan ke berbagai
-          industri. Tidak hanya meningkatkan efisiensi operasional suatu
-          perusahaan, teknologi IoT juga berfungsi memberi kemudahan dalam
-          menjalankan bisnis dengan automasi, manajemen aset bisnis, kontrol
-          biaya, dan masih banyak lagi. Berikut keseluruhan komponen dalam
-          solusi IoT kami yang saling berkaitan satu sama lain untuk
-          meningkatkan efisiensi operasional.
+          operasional.
+        </p>
+        <img className="mx-auto w-100 mt-5" src="/IoT_flow.png" alt="IOT" />
+        <p className="text-gray-700  text-2xl text-end leading-relaxed poppins-regular">
+          Kini teknologi IoT telah dapat diaplikasikan ke berbagai industri.
+          Tidak hanya meningkatkan efisiensi operasional suatu perusahaan,
+          teknologi IoT juga berfungsi memberi kemudahan dalam menjalankan
+          bisnis dengan automasi, manajemen aset bisnis, kontrol biaya, dan
+          masih banyak lagi. Berikut keseluruhan komponen dalam solusi IoT kami
+          yang saling berkaitan satu sama lain untuk meningkatkan efisiensi
+          operasional.
         </p>
       </section>
-
-      <img className="mx-auto w-90 mt-5" src="/IoT_flow.png" alt="IOT" />
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 poppins-semibold">
-            STUDI KASUS IOT
+            Studi Kasus Internet of Things
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
             {kasus.map((item, index) => {
