@@ -1,5 +1,6 @@
 import './products.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 const ProductCard = ({ product, isActive, onClick }) => {
@@ -172,7 +173,7 @@ const products = [
     images: ['/src/assets/tripisia_wide.png'],
   },
   {
-    id: 'smart-waste',
+    id: 'smart waste bin',
     name: 'Smart Waste Bin',
     iconPath: '/produk_icon/smart wastebin_icon.png',
     description:
@@ -187,7 +188,7 @@ const products = [
     images: ['/src/assets/wastebin_wide.png'],
   },
   {
-    id: 'pod-ex',
+    id: 'podex',
     name: 'POD-EX',
     iconPath: '/produk_icon/Logo-hitam.png',
     description:
@@ -198,7 +199,7 @@ const products = [
     images: ['/produk/pod-ex/podex-asset1.png'],
   },
   {
-    id: 'smart-farming',
+    id: 'smart farming',
     name: 'Smart Farming',
     iconPath: '/produk_icon/smart farming_icon.png',
     description:
@@ -221,7 +222,15 @@ const products = [
 
 const Products = () => {
   const [activeProduct, setActiveProduct] = useState(products[0]);
+  const [searchParams] = useSearchParams();
 
+  useEffect(() => {
+    const productId = searchParams.get('id');
+    if (productId) {
+      const product = products.find((p) => p.id === productId);
+      if (product) setActiveProduct(product);
+    }
+  }, [searchParams]); 
   return (
     <>
       <Helmet>

@@ -245,7 +245,7 @@ const Home = () => {
             <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 animate-infinite-scroll">
               {COMPANY_LOGOS.map((logo, index) => (
                 <li key={index}>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a href={`/product?id=${logo.alt?.toLowerCase()}`}      target="_self" rel="noopener noreferrer">
                     <img
                       src={logo.src}
                       alt={logo.alt}
@@ -261,7 +261,7 @@ const Home = () => {
             >
               {COMPANY_LOGOS.map((logo, index) => (
                 <li key={`clone-${index}`}>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a href={`/product?id=${logo.alt?.toLowerCase()}`}      target="_self" rel="noopener noreferrer">
                     <img
                       src={logo.src}
                       alt={logo.alt}

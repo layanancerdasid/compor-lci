@@ -27,7 +27,7 @@ function Contact() {
           {/* Map Section */}
           <div className="w-full mb-12">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507345.31092045235!2d106.81306072118483!3d-6.567638143081727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b24ead2145%3A0xb7fffc749f61512d!2sPT.%20Layanan%20Cerdas%20Indonesia!5e0!3m2!1sen!2sid!4v1737014694239!5m2!1sen!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.07206139523!2d107.61500357473851!3d-6.881970967339511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b24ead2145%3A0xb7fffc749f61512d!2sPT.%20Layanan%20Cerdas%20Indonesia!5e0!3m2!1sen!2sid!4v1737421459025!5m2!1sen!2sid"
               className="w-full h-[400px] rounded-lg shadow-md"
               allowFullScreen=""
               loading="lazy"
