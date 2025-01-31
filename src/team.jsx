@@ -3,13 +3,13 @@ import { Helmet } from "react-helmet";
 
 const teamMembers = [
   { name: "Alda", role: "CEO", imageUrl: "/team/masalda.png" },
-  { name: "Mindit", role: "COO", imageUrl: "/team/pak_mindit.jpg" },
+  { name: "Mindit", role: "COO", imageUrl: "/team/pak_mindit.png" },
   { name: "Rima", role: "CFO", imageUrl: "/team/bu_rima.png" },
-  { name: "Alfan", role: "Front-End Programmer", imageUrl: "/team/alfan.jpg" },
-  { name: "Fryma", role: "IoT Developer", imageUrl: "/team/mas_fryma.png" },
   { name: "Amar", role: "Back-End Programmer", imageUrl: "/team/amar.png" },
+  { name: "Fryma", role: "IoT Developer", imageUrl: "/team/mas_fryma.png" },
   { name: "Sutani", role: "Senior Developer", imageUrl: "/team/sutani.png" },
   { name: "Farhan", role: "IoT Developer", imageUrl: "/team/farhan.png" },
+  { name: "Alfan", role: "Front-End Programmer", imageUrl: "/team/alfan.jpg" },
 ];
 
 function Team() {
@@ -54,7 +54,7 @@ function Team() {
                       <img
                         src={member.imageUrl}
                         alt={member.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover grayscale"
                       />
                     </div>
                     <h3 className="text-xl font-medium mb-1">{member.name}</h3>
@@ -71,14 +71,14 @@ function Team() {
               <h2 className="text-3xl font-semibold text-center mb-12 poppins-semibold">
                 PRODUCT DEVELOPMENT
               </h2>
-              <div className="flex justify-center gap-8 flex-wrap max-w-4xl mx-auto poppins-regular">
+              <div className="flex justify-center gap-8 flex-wrap max-w-6xl mx-auto poppins-regular">
                 {productTeam.map((member) => (
                   <div key={member.name} className="flex flex-col items-center">
                     <div className="w-40 h-40 rounded-full overflow-hidden mb-4">
                       <img
                         src={member.imageUrl}
                         alt={member.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover grayscale"
                       />
                     </div>
                     <h3 className="text-xl font-medium mb-1">{member.name}</h3>

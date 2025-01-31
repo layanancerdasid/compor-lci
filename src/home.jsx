@@ -1,117 +1,112 @@
-import { useState, useEffect } from 'react';
-import { ArrowRight, Microchip, Terminal, TrendingUp } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
-} from '@material-tailwind/react';
-import './assets/font.css';
-import Bumper1 from './assets/bumper1.mp4';
-import { useNavigate } from 'react-router-dom';
+} from "@material-tailwind/react";
+import "./assets/font.css";
+import Bumper1 from "./assets/bumper1.mp4";
+import { useNavigate } from "react-router-dom";
 
 const PRODUCT_IMAGES = {
-  Podex: 'src/assets/podex_wide.png',
-  Arvis: 'src/assets/arvis_wide.png',
-  'Smart Farming': 'src/assets/smartbun_wide.png',
-  'Smart Wastebin': 'src/assets/wastebin_wide.png',
-  Tripisia: 'src/assets/tripisia_wide.png',
+  Podex: "src/assets/podex_wide.png",
+  Arvis: "src/assets/arvis_wide.png",
+  "Smart Farming": "src/assets/smartbun_wide.png",
+  "Smart Wastebin": "src/assets/wastebin_wide.png",
+  Tripisia: "src/assets/tripisia_wide.png",
 };
 
 const PRODUCT_DESCRIPTIONS = {
   Podex:
-    'PODEX merupakan sebuah platform yang menghubungkan berbagai stakeholder dalam ekosistem pendidikan untuk memudahkan Lembaga Pendidikan dalam penyediaan magang dan penempatan kerja, memudahkan calon tenaga kerja dalam mendapatkan pekerjaan, dan memudahkan industry dalam mencari tenaga kerja sesuai kebutuhan.',
+    "PODEX merupakan sebuah platform yang menghubungkan berbagai stakeholder dalam ekosistem pendidikan untuk memudahkan Lembaga Pendidikan dalam penyediaan magang dan penempatan kerja, memudahkan calon tenaga kerja dalam mendapatkan pekerjaan, dan memudahkan industry dalam mencari tenaga kerja sesuai kebutuhan.",
   Arvis:
-    'ARVIS adalah sebuah platform yang dapat digunakan sebagai sumber belajar yang variatif dengan menggunakan teknologi Augmented Reality. ARVIS dapat digunakan untuk menampilkan benda-benda berupa 3D yang tidak dapat dihadirkan secara langsung.',
-  'Smart Farming':
-    'Merupakan sebuah layanan yang menggunakan teknologi IoT dan dibuat untuk memudahkan dalam memantau tumbuhan. Smart Farming dapat memantau tumbuhan secara realtime dan otomatis.',
-  'Smart Wastebin':
-    'Merupakan sebuah layanan yang menggunakan teknologi IoT untuk memudahkan dalam hal pengelolaan sampah. Smart Waste dapat memantau kapasitas tempat sampah secara realtime dan otomatis.',
+    "ARVIS adalah sebuah platform yang dapat digunakan sebagai sumber belajar yang variatif dengan menggunakan teknologi Augmented Reality. ARVIS dapat digunakan untuk menampilkan benda-benda berupa 3D yang tidak dapat dihadirkan secara langsung.",
+  "Smart Farming":
+    "Merupakan sebuah layanan yang menggunakan teknologi IoT dan dibuat untuk memudahkan dalam memantau tumbuhan. Smart Farming dapat memantau tumbuhan secara realtime dan otomatis.",
+  "Smart Wastebin":
+    "Merupakan sebuah layanan yang menggunakan teknologi IoT untuk memudahkan dalam hal pengelolaan sampah. Smart Waste dapat memantau kapasitas tempat sampah secara realtime dan otomatis.",
   Tripisia:
-    'Platform untuk mengelola dan mengatur perjalanan bisnis (Business Trip) secara digital. Memudahkan perusahaan dalam mengatur perjalanan dan pengeluaran karyawan.',
+    "Platform untuk mengelola dan mengatur perjalanan bisnis (Business Trip) secara digital. Memudahkan perusahaan dalam mengatur perjalanan dan pengeluaran karyawan.",
 };
 
 const PRODUCT = [
-  'Podex',
-  'Arvis',
-  'Smart Farming',
-  'Smart Wastebin',
-  'Tripisia',
+  "Podex",
+  "Arvis",
+  "Smart Farming",
+  "Smart Wastebin",
+  "Tripisia",
 ];
 
 const COMPANY_LOGOS = [
-  { src: '/Roadbotics logo.png' },
-  { src: '/src/assets/arvis_icon.png', alt: 'Arvis' },
-  { src: 'src/assets/Logo full-hitam.png', alt: 'Podex' },
-  { src: '/src/assets/smart-farming.jpeg', alt: 'Smart Farming' },
-  { src: '/src/assets/swb.jpeg', alt: 'Smart Waste Bin' },
-  { src: '/src/assets/tamasia_icon_transparent.png', alt: 'Tripisia' },
+  { src: "/Roadbotics logo.png" },
+  { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
+  { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
+  { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
+  { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
+  { src: "/src/assets/tamasia_icon_transparent.png", alt: "Tripisia" },
   // LOOP
-  { src: '/Roadbotics logo.png' },
-  { src: '/src/assets/arvis_icon.png', alt: 'Arvis' },
-  { src: 'src/assets/Logo full-hitam.png', alt: 'Podex' },
-  { src: '/src/assets/smart-farming.jpeg', alt: 'Smart Farming' },
-  { src: '/src/assets/swb.jpeg', alt: 'Smart Waste Bin' },
-  { src: '/src/assets/tamasia_icon_transparent.png', alt: 'Tripisia' },
+  { src: "/Roadbotics logo.png" },
+  { src: "/src/assets/arvis_icon.png", alt: "Arvis" },
+  { src: "src/assets/Logo full-hitam.png", alt: "Podex" },
+  { src: "/src/assets/smart-farming.jpeg", alt: "Smart Farming" },
+  { src: "/src/assets/swb.jpeg", alt: "Smart Waste Bin" },
+  { src: "/src/assets/tamasia_icon_transparent.png", alt: "Tripisia" },
 ];
 
 const CAROUSEL_ITEMS = [
   {
     id: 1,
-    link: '/berita#smart-wastebin',
-    image: 'src/assets/berita_foto-1.JPG',
-    title: 'Smart Wastebin',
+    link: "/berita#smart-wastebin",
+    image: "src/assets/berita_foto-1.JPG",
+    title: "Smart Wastebin",
     description:
-      'Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah',
+      "Pemkot Madiun telah memasang sensor waste bin di tiap kontainer sampah di Kota Madiun untuk meningkatkan efisiensi pengelolaan sampah",
   },
   {
     id: 2,
-    link: '/berita#itb-summit',
-    image: 'src/assets/ceo_summit2024_2.jpeg',
-    title: 'ITB CEO Summit 2024',
+    link: "/berita#itb-summit",
+    image: "src/assets/ceo_summit2024_2.jpeg",
+    title: "ITB CEO Summit 2024",
     description:
-      'ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari',
+      "ITB CEO Summit 2024 menampilkan produk-produk yang bertujuan meningkatkan efisiensi dan kecerdasan kehidupan sehari-hari",
   },
   {
     id: 3,
-    link: '/berita#iciss',
-    image: 'src/assets/iciss1.jpeg',
-    title: 'ICISS',
+    link: "/berita#iciss",
+    image: "src/assets/iciss1.jpeg",
+    title: "ICISS",
     description:
-      'Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.',
+      "Acara ini mendiskusikan inovasi teknologi masa depan, terutama dalam integrasi data dan kecerdasan buatan (AI), untuk meningkatkan resiliensi dan keberlanjutan hidup.",
   },
 ];
 
 const PREVIEW_VIDEOS = [
   {
     id: 1,
-    src: '/src/assets/arvis_vid.mp4',
-    alt: 'Warehouse View 1',
+    src: "/src/assets/arvis_vid.mp4",
+    alt: "Warehouse View 1",
   },
   {
     id: 2,
-    src: '/src/assets/tripisia_vid.mp4',
-    alt: 'Warehouse View 2',
+    src: "/src/assets/tripisia_vid.mp4",
+    alt: "Warehouse View 2",
   },
   {
     id: 3,
-    src: '/src/assets/smartbun_vid.mp4',
-    alt: 'Warehouse View 3',
+    src: "/src/assets/smartbun_vid.mp4",
+    alt: "Warehouse View 3",
   },
   {
     id: 4,
-    src: '/src/assets/wastebin_vid.mp4',
-    alt: 'Warehouse View 4',
+    src: "/src/assets/wastebin_vid.mp4",
+    alt: "Warehouse View 4",
   },
 ];
-// const THEME = {
-//   primary: 'rgb(0, 77, 64)', // hijau tua
-//   white: 'rgb(255, 255, 255)',
-//   light: 'rgb(250, 250, 250)',
-// };
 
 const Home = () => {
   const navigate = useNavigate();
-  const [open, setOpen] = useState('Podex');
+  const [open, setOpen] = useState("Podex");
   const [activeSlide, setActiveSlide] = useState(0);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
@@ -119,7 +114,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((prevSlide) =>
-        prevSlide === CAROUSEL_ITEMS.length - 1 ? 0 : prevSlide + 1
+        prevSlide === CAROUSEL_ITEMS.length - 1 ? 0 : prevSlide + 1,
       );
     }, 5000);
 
@@ -128,13 +123,13 @@ const Home = () => {
 
   const nextSlide = () => {
     setActiveSlide((prevSlide) =>
-      prevSlide === CAROUSEL_ITEMS.length - 1 ? 0 : prevSlide + 1
+      prevSlide === CAROUSEL_ITEMS.length - 1 ? 0 : prevSlide + 1,
     );
   };
 
   const prevSlide = () => {
     setActiveSlide((prevSlide) =>
-      prevSlide === 0 ? CAROUSEL_ITEMS.length - 1 : prevSlide - 1
+      prevSlide === 0 ? CAROUSEL_ITEMS.length - 1 : prevSlide - 1,
     );
   };
 
@@ -176,7 +171,7 @@ const Home = () => {
               </button>
             </a>
             <button
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate("/contact")}
               className="bg-[#009f9a] text-white px-6 py-2 rounded-full shadow-md hover:bg-white hover:text-[#009f9a] transition-colors flex items-center gap-2"
             >
               <span>Contact Us</span>
@@ -202,10 +197,10 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <ServiceCard
                 icon={
-                  <Microchip
-                    size={48}
-                    strokeWidth={1.25}
-                    className="text-[#006666]"
+                  <img
+                    src={"/IoT service icon2.png"}
+                    alt={"Tempat Buat Icon IOT"}
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity "
                   />
                 }
                 title="IOT SERVICE"
@@ -213,10 +208,10 @@ const Home = () => {
               />
               <ServiceCard
                 icon={
-                  <Terminal
-                    size={48}
-                    strokeWidth={1.25}
-                    className="text-[#006666]"
+                  <img
+                    src={"/softaware service icon1.png"}
+                    alt={"Tempat Buat Icon Software"}
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity "
                   />
                 }
                 title="SOFTWARE SERVICE"
@@ -224,10 +219,10 @@ const Home = () => {
               />
               <ServiceCard
                 icon={
-                  <TrendingUp
-                    size={48}
-                    strokeWidth={1.25}
-                    className="text-[#006666]"
+                  <img
+                    src={"/Productivity icon1.png"}
+                    alt={"Tempat Buat Icon Productivity"}
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity "
                   />
                 }
                 title="PRODUCTIVITY"
@@ -245,7 +240,11 @@ const Home = () => {
             <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 animate-infinite-scroll">
               {COMPANY_LOGOS.map((logo, index) => (
                 <li key={index}>
-                  <a href={`/product?id=${logo.alt?.toLowerCase()}`}      target="_self" rel="noopener noreferrer">
+                  <a
+                    href={`/product?id=${logo.alt?.toLowerCase()}`}
+                    target="_self"
+                    rel="noopener noreferrer"
+                  >
                     <img
                       src={logo.src}
                       alt={logo.alt}
@@ -261,7 +260,11 @@ const Home = () => {
             >
               {COMPANY_LOGOS.map((logo, index) => (
                 <li key={`clone-${index}`}>
-                  <a href={`/product?id=${logo.alt?.toLowerCase()}`}      target="_self" rel="noopener noreferrer">
+                  <a
+                    href={`/product?id=${logo.alt?.toLowerCase()}`}
+                    target="_self"
+                    rel="noopener noreferrer"
+                  >
                     <img
                       src={logo.src}
                       alt={logo.alt}
@@ -370,7 +373,7 @@ const Home = () => {
             <div className="flex justify-center mt-8 gap-8">
               <button
                 onClick={() => {
-                  navigate('/ai-solution');
+                  navigate("/ai-solution");
                 }}
                 className="bg-white text-xl text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2"
               >
@@ -379,7 +382,7 @@ const Home = () => {
               </button>
               <button
                 onClick={() => {
-                  navigate('/iot-solution');
+                  navigate("/iot-solution");
                 }}
                 className="bg-white text-xl text-[#006666] px-6 py-2 rounded-full shadow-md hover:bg-[#009f9a] hover:text-white transition-colors flex items-center gap-2"
               >
@@ -403,10 +406,10 @@ const Home = () => {
                     key={item.id}
                     className={`absolute w-full h-full transition-all duration-700 ease-in-out transform ${
                       index === activeSlide
-                        ? 'opacity-100 translate-x-0'
+                        ? "opacity-100 translate-x-0"
                         : index < activeSlide
-                        ? 'opacity-0 -translate-x-full'
-                        : 'opacity-0 translate-x-full'
+                          ? "opacity-0 -translate-x-full"
+                          : "opacity-0 translate-x-full"
                     }`}
                   >
                     <a href={item.link} className="block h-full">
@@ -446,7 +449,7 @@ const Home = () => {
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === activeSlide ? 'bg-white' : 'bg-white/30'
+                      index === activeSlide ? "bg-white" : "bg-white/30"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
