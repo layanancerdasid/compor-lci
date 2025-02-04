@@ -200,7 +200,7 @@ const Home = () => {
                   <img
                     src={"/IoT service icon2.png"}
                     alt={"Tempat Buat Icon IOT"}
-                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity "
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity filter brightness-0 invert"
                   />
                 }
                 title="IOT SERVICE"
@@ -211,7 +211,7 @@ const Home = () => {
                   <img
                     src={"/softaware service icon1.png"}
                     alt={"Tempat Buat Icon Software"}
-                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity "
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity filter brightness-0 invert"
                   />
                 }
                 title="SOFTWARE SERVICE"
@@ -222,8 +222,7 @@ const Home = () => {
                   <img
                     src={"/Productivity icon1.png"}
                     alt={"Tempat Buat Icon Productivity"}
-                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity "
-                  />
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity filter brightness-0 invert"                  />
                 }
                 title="PRODUCTIVITY"
                 description="Menyediakan platform dan jasa untuk pengelolaan komunitas, asosiasi, dan organisasi untuk peningkatan kualitas hidup dari membernya."
@@ -367,7 +366,7 @@ const Home = () => {
                 >
                   <source src="/wastebin_2.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
-                </video>
+                </video>bg-[#009f9a]
               </div>
             </div>
             <div className="flex justify-center mt-8 gap-8">
@@ -465,7 +464,11 @@ const Home = () => {
 
 const ServiceCard = ({ icon, title, description }) => (
   <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
-    <div className="mb-4 flex justify-center">{icon}</div>
+    <div className="mb-4 flex justify-center">
+      <div className="w-40 h-40 bg-[#009f9a]  rounded-full flex items-center justify-center">
+        {icon}
+      </div>
+    </div>
     <h3 className="text-lg font-bold mb-4 text-[#006666] poppins-semibold">
       {title}
     </h3>

@@ -54,7 +54,7 @@ function Team() {
                       <img
                         src={member.imageUrl}
                         alt={member.name}
-                        className="w-full h-full object-cover grayscale"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <h3 className="text-xl font-medium mb-1">{member.name}</h3>
@@ -78,7 +78,7 @@ function Team() {
                       <img
                         src={member.imageUrl}
                         alt={member.name}
-                        className="w-full h-full object-cover grayscale"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <h3 className="text-xl font-medium mb-1">{member.name}</h3>
