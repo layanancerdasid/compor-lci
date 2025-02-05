@@ -200,7 +200,7 @@ const Home = () => {
                   <img
                     src={"/IoT service icon2.png"}
                     alt={"Tempat Buat Icon IOT"}
-                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity filter brightness-0 invert"
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity"
                   />
                 }
                 title="IOT SERVICE"
@@ -211,7 +211,7 @@ const Home = () => {
                   <img
                     src={"/softaware service icon1.png"}
                     alt={"Tempat Buat Icon Software"}
-                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity filter brightness-0 invert"
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity"
                   />
                 }
                 title="SOFTWARE SERVICE"
@@ -222,7 +222,7 @@ const Home = () => {
                   <img
                     src={"/Productivity icon1.png"}
                     alt={"Tempat Buat Icon Productivity"}
-                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity filter brightness-0 invert"                  />
+                    className="max-w-none w-24 h-24 object-contain hover:opacity-80 transition-opacity"              />
                 }
                 title="PRODUCTIVITY"
                 description="Menyediakan platform dan jasa untuk pengelolaan komunitas, asosiasi, dan organisasi untuk peningkatan kualitas hidup dari membernya."
@@ -465,9 +465,7 @@ const Home = () => {
 const ServiceCard = ({ icon, title, description }) => (
   <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
     <div className="mb-4 flex justify-center">
-      <div className="w-40 h-40 bg-[#009f9a]  rounded-full flex items-center justify-center">
         {icon}
-      </div>
     </div>
     <h3 className="text-lg font-bold mb-4 text-[#006666] poppins-semibold">
       {title}
